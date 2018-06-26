@@ -1,0 +1,34 @@
+{
+  "name": "pick-flick",
+  "version": "1.0.0",
+  "description": "movie DB app",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config ./webpack/webpack.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhicoding/pick-flick.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "abhishek shingane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abhicoding/pick-flick/issues"
+  },
+  "homepage": "https://github.com/Abhicoding/pick-flick#readme",
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8"
+  }
+}

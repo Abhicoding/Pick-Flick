@@ -3,7 +3,7 @@ const path = require('path')
 const Config = {
   entry: path.join(__dirname, '../src/index.js'),
   output: {
-    path: path.join(__dirname, '../build'),
+    path: path.resolve(__dirname, '../build'),
     filename: 'bundle.js'
   },
   module: {

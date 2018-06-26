@@ -19986,6 +19986,95 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./sampldata.js":
+/*!**********************!*\
+  !*** ./sampldata.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({ 'page': 1, 'total_results': 383414, 'total_pages': 19171, 'results': [{ 'vote_count': 1086, 'id': 351286, 'video': false, 'vote_average': 6.7, 'title': 'Jurassic World: Fallen Kingdom', 'popularity': 308.90421, 'poster_path': '/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg', 'original_language': 'en', 'original_title': 'Jurassic World: Fallen Kingdom', 'genre_ids': [28, 12, 878], 'backdrop_path': '/gBmrsugfWpiXRh13Vo3j0WW55qD.jpg', 'adult': false, 'overview': 'A volcanic eruption threatens the remaining dinosaurs on the island of Isla Nublar, where the creatures have freely roamed for several years after the demise of an animal theme park known as Jurassic World. Claire Dearing, the former park manager, has now founded the Dinosaur Protection Group, an organization dedicated to protecting the dinosaurs. To help with her cause, Claire has recruited Owen Grady, a former dinosaur trainer who worked at the park, to prevent the extinction of the dinosaurs once again.', 'release_date': '2018-06-06' }, { 'vote_count': 2553, 'id': 383498, 'video': false, 'vote_average': 7.6, 'title': 'Deadpool 2', 'popularity': 155.45184, 'poster_path': '/to0spRl1CMDvyUbOnbb4fTk3VAd.jpg', 'original_language': 'en', 'original_title': 'Deadpool 2', 'genre_ids': [28, 35, 878], 'backdrop_path': '/3P52oz9HPQWxcwHOwxtyrVV1LKi.jpg', 'adult': false, 'overview': "Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.", 'release_date': '2018-05-15' }, { 'vote_count': 323, 'id': 260513, 'video': false, 'vote_average': 7.7, 'title': 'Incredibles 2', 'popularity': 132.619652, 'poster_path': '/hL9Uz2vq93vi20oxZEBBaSs4w8U.jpg', 'original_language': 'en', 'original_title': 'Incredibles 2', 'genre_ids': [28, 12, 16, 10751], 'backdrop_path': '/mabuNsGJgRuCTuGqjFkWe1xdu19.jpg', 'adult': false, 'overview': 'Elastigirl springs into action to save the day, while Mr. Incredible faces his greatest challenge yet – taking care of the problems of his three children.', 'release_date': '2018-06-14' }, { 'vote_count': 11253, 'id': 135397, 'video': false, 'vote_average': 6.5, 'title': 'Jurassic World', 'popularity': 113.124183, 'poster_path': '/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg', 'original_language': 'en', 'original_title': 'Jurassic World', 'genre_ids': [28, 12, 878, 53], 'backdrop_path': '/t5KONotASgVKq4N19RyhIthWOPG.jpg', 'adult': false, 'overview': 'Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond.', 'release_date': '2015-06-06' }, { 'vote_count': 6956, 'id': 284053, 'video': false, 'vote_average': 7.4, 'title': 'Thor: Ragnarok', 'popularity': 111.381827, 'poster_path': '/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg', 'original_language': 'en', 'original_title': 'Thor: Ragnarok', 'genre_ids': [28, 12, 14, 878, 35], 'backdrop_path': '/kaIfm5ryEOwYg8mLbq8HkPuM1Fo.jpg', 'adult': false, 'overview': 'Thor is on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the prophecy of destruction to his homeworld and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.', 'release_date': '2017-10-25' }, { 'vote_count': 3, 'id': 453213, 'video': false, 'vote_average': 7, 'title': "My Brother's Wife 3 - The Woman Downstairs", 'popularity': 110.713799, 'poster_path': '/lwXw7eoK7QykQOXXejRAzqFCSQW.jpg', 'original_language': 'en', 'original_title': "My Brother's Wife 3 - The Woman Downstairs", 'genre_ids': [10749, 18], 'backdrop_path': null, 'adult': false, 'overview': "My sister and I moved into a new house. We didn't do much but the woman downstairs came up to ask us to keep it down. She said she was sensitive so we decided to keep it down.\r Her gangster husband would beat her when he came home drunk. Every time I heard her suffer from the beatings, I couldn't stand it and would stomp the floor to create a distraction. She would come up telling us to be quiet. I told her I did it intentionally. I also decided to do something about the woman who showed interest in me by memorizing my number.", 'release_date': '2017-01-14' }, { 'vote_count': 5134, 'id': 299536, 'video': false, 'vote_average': 8.4, 'title': 'Avengers: Infinity War', 'popularity': 103.162866, 'poster_path': '/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg', 'original_language': 'en', 'original_title': 'Avengers: Infinity War', 'genre_ids': [12, 878, 14, 28], 'backdrop_path': '/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg', 'adult': false, 'overview': 'As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.', 'release_date': '2018-04-25' }, { 'vote_count': 891, 'id': 427641, 'video': false, 'vote_average': 5.9, 'title': 'Rampage', 'popularity': 97.962379, 'poster_path': '/3gIO6mCd4Q4PF1tuwcyI3sjFrtI.jpg', 'original_language': 'en', 'original_title': 'Rampage', 'genre_ids': [28, 12, 878, 14], 'backdrop_path': '/wrqUiMXttHE4UBFMhLHlN601MZh.jpg', 'adult': false, 'overview': 'Primatologist Davis Okoye shares an unshakable bond with George, the extraordinarily intelligent, silverback gorilla who has been in his care since birth. But a rogue genetic experiment gone awry mutates this gentle ape into a raging creature of enormous size. To make matters worse, it’s soon discovered there are other similarly altered animals. As these newly created alpha predators tear across North America, destroying everything in their path, Okoye teams with a discredited genetic engineer to secure an antidote, fighting his way through an ever-changing battlefield, not only to halt a global catastrophe but to save the fearsome creature that was once his friend.', 'release_date': '2018-04-12' }, { 'vote_count': 2386, 'id': 333339, 'video': false, 'vote_average': 7.8, 'title': 'Ready Player One', 'popularity': 77.831872, 'poster_path': '/pU1ULUq8D3iRxl1fdX2lZIzdHuI.jpg', 'original_language': 'en', 'original_title': 'Ready Player One', 'genre_ids': [12, 878, 28], 'backdrop_path': '/q7fXcrDPJcf6t3rzutaNwTzuKP1.jpg', 'adult': false, 'overview': 'When the creator of a popular video game system dies, a virtual contest is created to compete for his fortune.', 'release_date': '2018-03-28' }, { 'vote_count': 323, 'id': 460019, 'video': false, 'vote_average': 6, 'title': 'Truth or Dare', 'popularity': 76.91282, 'poster_path': '/zbvziwnZa91AJD78Si0hUb5JP5X.jpg', 'original_language': 'en', 'original_title': 'Truth or Dare', 'genre_ids': [53, 27], 'backdrop_path': '/eyyqkYdaM4Moxdj7f9eKwqCkC2m.jpg', 'adult': false, 'overview': 'A harmless game of "Truth or Dare" among friends turns deadly when someone—or something—begins to punish those who tell a lie—or refuse the dare.', 'release_date': '2018-04-12' }, { 'vote_count': 6353, 'id': 284054, 'video': false, 'vote_average': 7.3, 'title': 'Black Panther', 'popularity': 71.231243, 'poster_path': '/uxzzxijgPIY7slzFvMotPv8wjKA.jpg', 'original_language': 'en', 'original_title': 'Black Panther', 'genre_ids': [28, 12, 14, 878], 'backdrop_path': '/6ELJEzQJ3Y45HczvreC3dg0GV5R.jpg', 'adult': false, 'overview': "King T'Challa returns home from America to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within his own country as well as without. Using powers reserved to Wakandan kings, T'Challa assumes the Black Panther mantel to join with girlfriend Nakia, the queen-mother, his princess-kid sister, members of the Dora Milaje (the Wakandan 'special forces') and an American secret agent, to prevent Wakanda from being dragged into a world war.", 'release_date': '2018-02-13' }, { 'vote_count': 5765, 'id': 119450, 'video': false, 'vote_average': 7.3, 'title': 'Dawn of the Planet of the Apes', 'popularity': 69.998929, 'poster_path': '/2EUAUIu5lHFlkj5FRryohlH6CRO.jpg', 'original_language': 'en', 'original_title': 'Dawn of the Planet of the Apes', 'genre_ids': [878, 28, 18, 53], 'backdrop_path': '/t7VSsAbIQS6kpO4ikuCNSiugsSy.jpg', 'adult': false, 'overview': 'A group of scientists in San Francisco struggle to stay alive in the aftermath of a plague that is wiping out humanity, while Caesar tries to maintain dominance over his community of intelligent apes.', 'release_date': '2014-06-26' }, { 'vote_count': 1818, 'id': 338970, 'video': false, 'vote_average': 6.2, 'title': 'Tomb Raider', 'popularity': 69.455528, 'poster_path': '/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg', 'original_language': 'en', 'original_title': 'Tomb Raider', 'genre_ids': [28, 12, 14, 18, 9648, 53], 'backdrop_path': '/bLJTjfbZ1c5zSNiAvGYs1Uc82ir.jpg', 'adult': false, 'overview': 'Lara Croft, the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she finds herself on the island where her father disappeared.', 'release_date': '2018-03-08' }, { 'vote_count': 931, 'id': 268896, 'video': false, 'vote_average': 5.9, 'title': 'Pacific Rim: Uprising', 'popularity': 66.898271, 'poster_path': '/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg', 'original_language': 'en', 'original_title': 'Pacific Rim: Uprising', 'genre_ids': [28, 14, 878, 12], 'backdrop_path': '/6pT73ACl5N1VekdK3wQI8PLfz1E.jpg', 'adult': false, 'overview': 'It has been ten years since The Battle of the Breach and the oceans are still, but restless. Vindicated by the victory at the Breach, the Jaeger program has evolved into the most powerful global defense force in human history. The PPDC now calls upon the best and brightest to rise up and become the next generation of heroes when the Kaiju threat returns.', 'release_date': '2018-03-21' }, { 'vote_count': 1047, 'id': 348350, 'video': false, 'vote_average': 6.8, 'title': 'Solo: A Star Wars Story', 'popularity': 55.616795, 'poster_path': '/4oD6VEccFkorEBTEDXtpLAaz0Rl.jpg', 'original_language': 'en', 'original_title': 'Solo: A Star Wars Story', 'genre_ids': [28, 12, 878], 'backdrop_path': '/7LZ0K4FsALrt7OeNIGOVLNuKQRU.jpg', 'adult': false, 'overview': 'Through a series of daring escapades deep within a dark and dangerous criminal underworld, Han Solo meets his mighty future copilot Chewbacca and encounters the notorious gambler Lando Calrissian.', 'release_date': '2018-05-23' }, { 'vote_count': 3815, 'id': 281338, 'video': false, 'vote_average': 6.9, 'title': 'War for the Planet of the Apes', 'popularity': 55.356039, 'poster_path': '/3vYhLLxrTtZLysXtIWktmd57Snv.jpg', 'original_language': 'en', 'original_title': 'War for the Planet of the Apes', 'genre_ids': [18, 878, 10752], 'backdrop_path': '/ulMscezy9YX0bhknvJbZoUgQxO5.jpg', 'adult': false, 'overview': 'Caesar and his apes are forced into a deadly conflict with an army of humans led by a ruthless Colonel. After the apes suffer unimaginable losses, Caesar wrestles with his darker instincts and begins his own mythic quest to avenge his kind. As the journey finally brings them face to face, Caesar and the Colonel are pitted against each other in an epic battle that will determine the fate of both their species and the future of the planet.', 'release_date': '2017-07-11' }, { 'vote_count': 2145, 'id': 337167, 'video': false, 'vote_average': 6, 'title': 'Fifty Shades Freed', 'popularity': 55.354909, 'poster_path': '/jjPJ4s3DWZZvI4vw8Xfi4Vqa1Q8.jpg', 'original_language': 'en', 'original_title': 'Fifty Shades Freed', 'genre_ids': [18, 10749], 'backdrop_path': '/9ywA15OAiwjSTvg3cBs9B7kOCBF.jpg', 'adult': false, 'overview': 'Believing they have left behind shadowy figures from their past, newlyweds Christian and Ana fully embrace an inextricable connection and shared life of luxury. But just as she steps into her role as Mrs. Grey and he relaxes into an unfamiliar stability, new threats could jeopardize their happy ending before it even begins.', 'release_date': '2018-01-17' }, { 'vote_count': 2, 'id': 458355, 'video': false, 'vote_average': 8, 'title': 'Bedroom Eyes', 'popularity': 54.273632, 'poster_path': '/d2OBAb68xY4u6M6OV44hf1Rocrv.jpg', 'original_language': 'en', 'original_title': 'Bedroom Eyes', 'genre_ids': [53], 'backdrop_path': null, 'adult': false, 'overview': "As police investigate a series of murders, all signs point to the lead detective's girlfriend: a gorgeous webcam girl who goes by the name \"Bedroom Eyes.\"", 'release_date': '2017-04-04' }, { 'vote_count': 315, 'id': 402900, 'video': false, 'vote_average': 6.7, 'title': "Ocean's 8", 'popularity': 54.237731, 'poster_path': '/MvYpKlpFukTivnlBhizGbkAe3v.jpg', 'original_language': 'en', 'original_title': "Ocean's 8", 'genre_ids': [80, 35, 28, 53], 'backdrop_path': '/zBIfBeStaDdDdhBrSx8InhgFUVa.jpg', 'adult': false, 'overview': "Debbie Ocean, a criminal mastermind, gathers a crew of seven other female thieves to pull off the heist of the century at New York's annual Met Gala.", 'release_date': '2018-06-07' }, { 'vote_count': 9185, 'id': 297762, 'video': false, 'vote_average': 7.2, 'title': 'Wonder Woman', 'popularity': 50.997384, 'poster_path': '/imekS7f1OuHyUP2LAiTEM0zBzUz.jpg', 'original_language': 'en', 'original_title': 'Wonder Woman', 'genre_ids': [28, 12, 14, 10752, 878], 'backdrop_path': '/6iUNJZymJBMXXriQyFZfLAKnjO6.jpg', 'adult': false, 'overview': 'An Amazon princess comes to the world of Man in the grips of the First World War to confront the forces of evil and bring an end to human conflict.', 'release_date': '2017-05-30' }] });
+
+/***/ }),
+
+/***/ "./src/components/Search/search.jsx":
+/*!******************************************!*\
+  !*** ./src/components/Search/search.jsx ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const Search = () => {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    'div',
+    null,
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      'fieldset',
+      null,
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        'h2',
+        null,
+        ' Search '
+      ),
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('input', null)
+    )
+  );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Search);
+
+/***/ }),
+
+/***/ "./src/components/TitleCard/titlecard.jsx":
+/*!************************************************!*\
+  !*** ./src/components/TitleCard/titlecard.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const TitleCard = data => {
+  console.log(data, '@data');
+  return data.results.map(movie => {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      'div',
+      { key: movie.id },
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        'h2',
+        null,
+        movie.title
+      ),
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        'h3',
+        null,
+        movie.vote_average
+      ),
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        'p',
+        null,
+        movie.overview
+      )
+    );
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TitleCard);
+
+/***/ }),
+
 /***/ "./src/components/app.jsx":
 /*!********************************!*\
   !*** ./src/components/app.jsx ***!
@@ -19997,13 +20086,27 @@ if (false) {} else {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Search_search_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Search/search.jsx */ "./src/components/Search/search.jsx");
+/* harmony import */ var _TitleCard_titlecard_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TitleCard/titlecard.jsx */ "./src/components/TitleCard/titlecard.jsx");
+/* harmony import */ var _sampldata_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../sampldata.js */ "./sampldata.js");
+
+
+
+
+
 
 
 const App = () => {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    'h1',
+    'div',
     null,
-    ' Hello pick-flix '
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      'h1',
+      null,
+      ' Pick-Flix'
+    ),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Search_search_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TitleCard_titlecard_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], _sampldata_js__WEBPACK_IMPORTED_MODULE_3__["default"])
   );
 };
 

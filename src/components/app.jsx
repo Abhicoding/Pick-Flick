@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import Header from './Header/header.jsx'
 import Search from './Search/search.jsx'
-import TitleCard from './TitleCard/titlecard.jsx'
+import Browse from './Browse/browse.jsx'
 
 import data from '../../sampldata.js'
 
@@ -14,7 +14,7 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={Search} />
-          <Route exact path='/browse' component={() => <TitleCard {...data} />} />
+          <Route exact path='/browse' component={() => <Browse {...data} />} />
         </Switch>
       </BrowserRouter>
     </div>

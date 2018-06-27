@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TitleCard = (data) => {
+const Browse = (data) => {
   console.log(data, '@data')
   return (data.results.map((movie) => {
     return (<div key={movie.id}>
@@ -12,4 +12,4 @@ const TitleCard = (data) => {
   )
 }
 
-export default TitleCard
+export default Browse

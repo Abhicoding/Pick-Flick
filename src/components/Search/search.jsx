@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const Wrapper = styled.div`
 position: absolute;
@@ -11,14 +12,14 @@ width: 20%
 const Search = () => {
   return (
     <Wrapper>
-      <div class='field has-addons'>
-        <div class='control'>
-          <input class='input' type='text' placeholder='Search for a movie' />
+      <div className='field has-addons'>
+        <div className='control'>
+          <input className='input' type='text' placeholder='Search for a movie' />
         </div>
-        <div class='control'>
-          <a class='button is-info'>
+        <div className='control'>
+          <Link to='/browse' className='button is-info'>
       Search
-          </a>
+          </Link>
         </div>
       </div>
     </Wrapper>

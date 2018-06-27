@@ -1,6 +1,7 @@
 import React from 'react'
+import Search from '../../shared/Search/search.jsx'
 
-const Header = () => {
+const Header = (props) => {
   return (
     <section className='hero is-primary'>
       <div className='hero-body'>
@@ -12,6 +13,9 @@ const Header = () => {
           Movie Database
           </h2>
         </div>
+        {props.location.pathname !== '/'
+          ? <div className='container'><Search /></div>
+          : null}
       </div>
     </section>
   )

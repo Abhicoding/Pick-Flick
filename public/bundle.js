@@ -29423,6 +29423,41 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
+/***/ "./public/search.svg":
+/*!***************************!*\
+  !*** ./public/search.svg ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _objectWithoutProperties(obj, keys) {
+  var target = {};for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+  }return target;
+}
+
+
+/* harmony default export */ __webpack_exports__["default"] = (_ref => {
+  let {
+    styles = {}
+  } = _ref,
+      props = _objectWithoutProperties(_ref, ["styles"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    "svg",
+    _extends({ xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 512 512" }, props),
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", { d: "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" })
+  );
+});
+
+/***/ }),
+
 /***/ "./sampldata.js":
 /*!**********************!*\
   !*** ./sampldata.js ***!
@@ -29472,9 +29507,11 @@ const Browse = data => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/Search/search.jsx */ "./src/shared/Search/search.jsx");
 
 
-const Header = () => {
+
+const Header = props => {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     'section',
     { className: 'hero is-primary' },
@@ -29494,7 +29531,12 @@ const Header = () => {
           { className: 'subtitle' },
           'Movie Database'
         )
-      )
+      ),
+      props.location.pathname !== '/' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        'div',
+        { className: 'container' },
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null)
+      ) : null
     )
   );
 };
@@ -29573,10 +29615,10 @@ const MovieCard = movie => {
 
 /***/ }),
 
-/***/ "./src/components/Search/search.jsx":
-/*!******************************************!*\
-  !*** ./src/components/Search/search.jsx ***!
-  \******************************************/
+/***/ "./src/components/SearchTile/searchtile.jsx":
+/*!**************************************************!*\
+  !*** ./src/components/SearchTile/searchtile.jsx ***!
+  \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -29584,45 +29626,73 @@ const MovieCard = movie => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.es.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/Search/search.jsx */ "./src/shared/Search/search.jsx");
+/* harmony import */ var _shared_Button_button_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/Button/button.jsx */ "./src/shared/Button/button.jsx");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.es.js");
 
 
 
 
-const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
-position: absolute;
-left: 40%;
-top: 40%;
-width: 20%
-`;
 
-const Search = () => {
+
+
+
+const SearchTile = () => {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     Wrapper,
     null,
     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      'div',
-      { className: 'field has-addons' },
+      'article',
+      { className: 'tile is-child notification is-warning' },
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        'div',
-        { className: 'control' },
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('input', { className: 'input', type: 'text', placeholder: 'Search for a movie' })
-      ),
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        'div',
-        { className: 'control' },
+        Content,
+        null,
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"],
-          { to: '/browse', className: 'button is-info' },
-          'Search'
+          StyleSearch,
+          null,
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null)
+        ),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          StyleButton,
+          null,
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+            _shared_Button_button_jsx__WEBPACK_IMPORTED_MODULE_3__["default"],
+            { style: 'is-danger' },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+              react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
+              { to: '/browse' },
+              'Browse all'
+            )
+          )
         )
       )
     )
   );
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Search);
+const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
+width: max-content;
+box-sizing: border-box;
+height: 50%;
+margin-top: 5%;
+margin-left: 30%;
+`;
+const Content = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].span`
+display: float;
+`;
+const StyleButton = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
+width: max-content;
+margin-left: 5%;
+`;
+
+const StyleSearch = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
+width: max-content;
+margin-left: 5%;
+width: 60%;
+`;
+
+/* harmony default export */ __webpack_exports__["default"] = (SearchTile);
 
 /***/ }),
 
@@ -29639,7 +29709,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _Header_header_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Header/header.jsx */ "./src/components/Header/header.jsx");
-/* harmony import */ var _Search_search_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Search/search.jsx */ "./src/components/Search/search.jsx");
+/* harmony import */ var _SearchTile_searchtile_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SearchTile/searchtile.jsx */ "./src/components/SearchTile/searchtile.jsx");
 /* harmony import */ var _Browse_browse_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Browse/browse.jsx */ "./src/components/Browse/browse.jsx");
 /* harmony import */ var _sampldata_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../sampldata.js */ "./sampldata.js");
 
@@ -29653,18 +29723,14 @@ __webpack_require__.r(__webpack_exports__);
 
 const App = () => {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    'div',
+    react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"],
     null,
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header_header_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null),
     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"],
+      'div',
       null,
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"],
-        null,
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/', component: _Search_search_jsx__WEBPACK_IMPORTED_MODULE_3__["default"] }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/browse', component: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Browse_browse_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], _sampldata_js__WEBPACK_IMPORTED_MODULE_5__["default"]) })
-      )
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { path: '/', component: _Header_header_jsx__WEBPACK_IMPORTED_MODULE_2__["default"] }),
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/', component: _SearchTile_searchtile_jsx__WEBPACK_IMPORTED_MODULE_3__["default"] }),
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/browse', component: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Browse_browse_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], _sampldata_js__WEBPACK_IMPORTED_MODULE_5__["default"]) })
     )
   );
 };
@@ -29696,6 +29762,91 @@ __webpack_require__.r(__webpack_exports__);
 
 
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_app_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('app'));
+
+/***/ }),
+
+/***/ "./src/shared/Button/button.jsx":
+/*!**************************************!*\
+  !*** ./src/shared/Button/button.jsx ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const Button = props => {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    'div',
+    { className: 'control' },
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      'p',
+      { className: 'button ' + props.style },
+      props.children
+    )
+  );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Button);
+
+/***/ }),
+
+/***/ "./src/shared/Search/search.jsx":
+/*!**************************************!*\
+  !*** ./src/shared/Search/search.jsx ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _public_search_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../public/search.svg */ "./public/search.svg");
+
+// import styled from 'styled-components'
+
+
+
+
+// const Wrapper = styled.div`
+// position: relative;
+// margin-top: 10%;
+// margin-left: 10%;
+// width: 80%;
+// `
+
+const Search = () => {
+  return (
+    // <Wrapper>
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      'div',
+      { className: 'field has-addons' },
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        'div',
+        { className: 'control' },
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('input', { className: 'input', type: 'text', placeholder: 'Search for a movie' })
+      ),
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        'div',
+        { className: 'control' },
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
+          { to: '/browse', className: 'button is-info' },
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_public_search_svg__WEBPACK_IMPORTED_MODULE_2__["default"], { height: 25, width: 25, fill: 'white' })
+        )
+      )
+    )
+    // </Wrapper>
+
+  );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Search);
 
 /***/ })
 

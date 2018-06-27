@@ -13,7 +13,8 @@ const Dev = {
     port: 9000,
     compress: true,
     contentBase: path.join(__dirname, '../public/'),
-    publicPath: path.join(__dirname, '../public/')
+    publicPath: path.join(__dirname, '../public/'),
+    historyApiFallback: true
   },
   watch: true
 }

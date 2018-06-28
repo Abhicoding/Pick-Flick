@@ -29512,6 +29512,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const Header = props => {
+  console.log(props, '@header');
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     'section',
     { className: 'hero is-primary' },
@@ -29638,7 +29639,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const SearchTile = () => {
+const SearchTile = ({ searchFunc, searchTerm }) => {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     Wrapper,
     null,
@@ -29651,7 +29652,7 @@ const SearchTile = () => {
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
           StyleSearch,
           null,
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null)
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], { searchFunc: searchFunc, searchTerm: searchTerm })
         ),
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
           StyleButton,
@@ -29712,6 +29713,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SearchTile_searchtile_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SearchTile/searchtile.jsx */ "./src/components/SearchTile/searchtile.jsx");
 /* harmony import */ var _Browse_browse_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Browse/browse.jsx */ "./src/components/Browse/browse.jsx");
 /* harmony import */ var _sampldata_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../sampldata.js */ "./sampldata.js");
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
 
@@ -29721,19 +29723,51 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const App = () => {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"],
-    null,
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      'div',
+
+class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor() {
+    super();
+    this.state = {
+      searchTerm: '',
+      results: _sampldata_js__WEBPACK_IMPORTED_MODULE_5__["default"].results
+    };
+    this.searchFunc = this.searchFunc.bind(this);
+    this.searchResult = this.searchResult.bind(this);
+  }
+
+  searchFunc(input) {
+    console.log(input, '@searchFunc');
+    this.setState({
+      searchTerm: input
+    });
+  }
+
+  searchResult() {
+    if (this.state.searchTerm) {
+      let newResults = _sampldata_js__WEBPACK_IMPORTED_MODULE_5__["default"].results.filter(movie => movie.title.indexOf(this.state.searchTerm) > -1 || movie.overview.indexOf(this.state.searchTerm));
+      this.setState({
+        results: newResults
+      });
+    }
+  }
+
+  render() {
+    const { searchTerm, results } = this.state;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"],
       null,
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { path: '/', component: _Header_header_jsx__WEBPACK_IMPORTED_MODULE_2__["default"] }),
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/', component: _SearchTile_searchtile_jsx__WEBPACK_IMPORTED_MODULE_3__["default"] }),
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/browse', component: () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Browse_browse_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], _sampldata_js__WEBPACK_IMPORTED_MODULE_5__["default"]) })
-    )
-  );
-};
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+        'div',
+        null,
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { path: '/', render: props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header_header_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, props, { searchFunc: this.searchFunc,
+            searchTerm: searchTerm, searchResult: this.searchResult })) }),
+        ' ',
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/', render: props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchTile_searchtile_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, props, { searchFunc: this.searchFunc, searchTerm: searchTerm, searchResult: this.searchResult })) }),
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/browse', render: props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Browse_browse_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, { results: results })) })
+      )
+    );
+  }
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
@@ -29808,28 +29842,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _public_search_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../public/search.svg */ "./public/search.svg");
 
-// import styled from 'styled-components'
 
 
 
 
-// const Wrapper = styled.div`
-// position: relative;
-// margin-top: 10%;
-// margin-left: 10%;
-// width: 80%;
-// `
+class Search extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: this.props.searchTerm
+    };
 
-const Search = () => {
-  return (
-    // <Wrapper>
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      searchTerm: e.target.value
+    });
+    this.props.searchFunc(e.target.value);
+  }
+  render() {
+    const searchTerm = this.state.searchTerm;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
       'div',
       { className: 'field has-addons' },
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
         'div',
         { className: 'control' },
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('input', { className: 'input', type: 'text', placeholder: 'Search for a movie' })
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('input', { className: 'input', type: 'text',
+          placeholder: !searchTerm ? 'Search for a movie' : '',
+          value: searchTerm || '', onChange: this.handleChange })
       ),
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
         'div',
@@ -29840,11 +29883,9 @@ const Search = () => {
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_public_search_svg__WEBPACK_IMPORTED_MODULE_2__["default"], { height: 25, width: 25, fill: 'white' })
         )
       )
-    )
-    // </Wrapper>
-
-  );
-};
+    );
+  }
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (Search);
 

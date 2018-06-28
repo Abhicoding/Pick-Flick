@@ -2,6 +2,7 @@ import React from 'react'
 import Search from '../../shared/Search/search.jsx'
 
 const Header = (props) => {
+  console.log(props, '@header')
   return (
     <section className='hero is-primary'>
       <div className='hero-body'>

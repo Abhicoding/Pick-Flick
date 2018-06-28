@@ -6,13 +6,13 @@ import Button from '../../shared/Button/button.jsx'
 
 import styled from 'styled-components'
 
-const SearchTile = () => {
+const SearchTile = ({searchFunc, searchTerm}) => {
   return (
     <Wrapper>
       <article className='tile is-child notification is-warning'>
         <Content>
           <StyleSearch>
-            <Search />
+            <Search searchFunc={searchFunc} searchTerm={searchTerm} />
           </StyleSearch>
           <StyleButton>
             <Button style={'is-danger'}>

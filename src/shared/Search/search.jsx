@@ -1,31 +1,41 @@
 import React from 'react'
-// import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 import SearchLogo from '../../../public/search.svg'
 
-// const Wrapper = styled.div`
-// position: relative;
-// margin-top: 10%;
-// margin-left: 10%;
-// width: 80%;
-// `
+class Search extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      searchTerm: this.props.searchTerm
+    }
 
-const Search = () => {
-  return (
-    // <Wrapper>
-    <div className='field has-addons'>
-      <div className='control'>
-        <input className='input' type='text' placeholder='Search for a movie' />
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange (e) {
+    this.setState({
+      searchTerm: e.target.value
+    })
+    this.props.searchFunc(e.target.value)
+  }
+  render () {
+    const searchTerm = this.state.searchTerm
+    return (
+      <div className='field has-addons'>
+        <div className='control'>
+          <input className='input' type='text'
+            placeholder={!searchTerm ? 'Search for a movie' : ''}
+            value={searchTerm || ''} onChange={this.handleChange} />
+        </div>
+        <div className='control'>
+          <Link to='/browse' className='button is-info'>
+            <SearchLogo height={25} width={25} fill={'white'} />
+          </Link>
+        </div>
       </div>
-      <div className='control'>
-        <Link to='/browse' className='button is-info'>
-          <SearchLogo height={25} width={25} fill={'white'} />
-        </Link>
-      </div>
-    </div>
-    // </Wrapper>
-  )
+    )
+  }
 }
 
 export default Search

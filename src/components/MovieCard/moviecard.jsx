@@ -9,7 +9,6 @@ margin-left: 2.5%;
 margin-top: 2%`
 
 const MovieCard = (movie) => {
-  console.log(movie, '@moviecard')
   return (
     <Wrapper>
       <div className='tile is-ancestor'>

@@ -6,23 +6,34 @@ import Button from '../../shared/Button/button.jsx'
 
 import styled from 'styled-components'
 
-const SearchTile = ({searchFunc, searchTerm}) => {
-  return (
-    <Wrapper>
-      <article className='tile is-child notification is-warning'>
-        <Content>
-          <StyleSearch>
-            <Search searchFunc={searchFunc} searchTerm={searchTerm} />
-          </StyleSearch>
-          <StyleButton>
-            <Button style={'is-danger'}>
-              <Link to='/browse'>Browse all</Link>
-            </Button>
-          </StyleButton>
-        </Content>
-      </article>
-    </Wrapper >
-  )
+class SearchTile extends React.Component {
+  constructor (props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick () {
+    this.props.searchResult()
+  }
+
+  render () {
+    return (
+      <Wrapper>
+        <article className='tile is-child notification is-warning'>
+          <Content>
+            <StyleSearch>
+              <Search {...this.props} />
+            </StyleSearch>
+            <StyleButton>
+              <Button style={'is-danger'} >
+                <Link to='/browse' >Browse all</Link>
+              </Button>
+            </StyleButton>
+          </Content>
+        </article>
+      </Wrapper >
+    )
+  }
 }
 
 const Wrapper = styled.div`

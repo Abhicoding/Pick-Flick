@@ -29507,40 +29507,52 @@ const Browse = data => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/Search/search.jsx */ "./src/shared/Search/search.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/Search/search.jsx */ "./src/shared/Search/search.jsx");
 
 
 
-const Header = props => {
-  console.log(props, '@header');
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    'section',
-    { className: 'hero is-primary' },
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      'div',
-      { className: 'hero-body' },
+
+
+class Header extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super();
+  }
+  render() {
+    // const {searchTerm} = this.props
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      'section',
+      { className: 'hero is-primary' },
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
         'div',
-        { className: 'container' },
+        { className: 'hero-body' },
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          'h1',
-          { className: 'title' },
-          'Pick-Flix'
+          'div',
+          { className: 'container' },
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+            'h1',
+            { className: 'title' },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+              react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
+              { to: '/' },
+              'Pick-Flix'
+            )
+          ),
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+            'h2',
+            { className: 'subtitle' },
+            'Movie Database'
+          )
         ),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          'h2',
-          { className: 'subtitle' },
-          'Movie Database'
-        )
-      ),
-      props.location.pathname !== '/' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        'div',
-        { className: 'container' },
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null)
-      ) : null
-    )
-  );
-};
+        this.props.location.pathname !== '/' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+          'div',
+          { className: 'container' },
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], this.props)
+        ) : null
+      )
+    );
+  }
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 
@@ -29569,7 +29581,6 @@ margin-left: 2.5%;
 margin-top: 2%`;
 
 const MovieCard = movie => {
-  console.log(movie, '@moviecard');
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
     Wrapper,
     null,
@@ -29639,38 +29650,49 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const SearchTile = ({ searchFunc, searchTerm }) => {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-    Wrapper,
-    null,
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      'article',
-      { className: 'tile is-child notification is-warning' },
+class SearchTile extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.searchResult();
+  }
+
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+      Wrapper,
+      null,
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        Content,
-        null,
+        'article',
+        { className: 'tile is-child notification is-warning' },
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          StyleSearch,
-          null,
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], { searchFunc: searchFunc, searchTerm: searchTerm })
-        ),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-          StyleButton,
+          Content,
           null,
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-            _shared_Button_button_jsx__WEBPACK_IMPORTED_MODULE_3__["default"],
-            { style: 'is-danger' },
+            StyleSearch,
+            null,
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Search_search_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], this.props)
+          ),
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+            StyleButton,
+            null,
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
-              { to: '/browse' },
-              'Browse all'
+              _shared_Button_button_jsx__WEBPACK_IMPORTED_MODULE_3__["default"],
+              { style: 'is-danger' },
+              react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
+                { to: '/browse' },
+                'Browse all'
+              )
             )
           )
         )
       )
-    )
-  );
-};
+    );
+  }
+}
 
 const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
 width: max-content;
@@ -29725,8 +29747,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchTerm: '',
       results: _sampldata_js__WEBPACK_IMPORTED_MODULE_5__["default"].results
@@ -29744,7 +29766,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
   searchResult() {
     if (this.state.searchTerm) {
-      let newResults = _sampldata_js__WEBPACK_IMPORTED_MODULE_5__["default"].results.filter(movie => movie.title.indexOf(this.state.searchTerm) > -1 || movie.overview.indexOf(this.state.searchTerm));
+      let newResults = _sampldata_js__WEBPACK_IMPORTED_MODULE_5__["default"].results.filter(movie => `${movie.title} ${movie.overview}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) > -1);
       this.setState({
         results: newResults
       });
@@ -29754,17 +29776,14 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   render() {
     const { searchTerm, results } = this.state;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-      react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"],
+      'div',
       null,
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-        'div',
-        null,
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { path: '/', render: props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header_header_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, props, { searchFunc: this.searchFunc,
-            searchTerm: searchTerm, searchResult: this.searchResult })) }),
-        ' ',
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/', render: props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchTile_searchtile_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, props, { searchFunc: this.searchFunc, searchTerm: searchTerm, searchResult: this.searchResult })) }),
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/browse', render: props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Browse_browse_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, { results: results })) })
-      )
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { path: '/', render: props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header_header_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, props, { searchFunc: this.searchFunc,
+          searchTerm: searchTerm, searchResult: this.searchResult })) }),
+      ' ',
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/', render: props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchTile_searchtile_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, props, { searchFunc: this.searchFunc,
+          searchTerm: searchTerm, searchResult: this.searchResult })) }),
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], { exact: true, path: '/browse', render: props => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Browse_browse_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, { results: results })) })
     );
   }
 }
@@ -29786,16 +29805,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bulma/css/bulma.css */ "./node_modules/bulma/css/bulma.css");
-/* harmony import */ var bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_app_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/app.jsx */ "./src/components/app.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bulma/css/bulma.css */ "./node_modules/bulma/css/bulma.css");
+/* harmony import */ var bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(bulma_css_bulma_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_app_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/app.jsx */ "./src/components/app.jsx");
 
 
 
 
 
 
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_app_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('app'));
+
+Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+  react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"],
+  null,
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_app_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], null)
+), document.getElementById('app'));
 
 /***/ }),
 
@@ -29854,6 +29879,7 @@ class Search extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleChange(e) {
@@ -29862,7 +29888,15 @@ class Search extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     });
     this.props.searchFunc(e.target.value);
   }
+
+  handleSearch() {
+    if (this.props.searchResult) {
+      this.props.searchResult();
+    }
+  }
+
   render() {
+    console.log(this.props, '@browse');
     const searchTerm = this.state.searchTerm;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
       'div',
@@ -29879,7 +29913,7 @@ class Search extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         { className: 'control' },
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
           react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"],
-          { to: '/browse', className: 'button is-info' },
+          { to: 'browse', className: 'button is-info', onClick: this.handleSearch },
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_public_search_svg__WEBPACK_IMPORTED_MODULE_2__["default"], { height: 25, width: 25, fill: 'white' })
         )
       )

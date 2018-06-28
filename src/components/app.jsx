@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Route} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 
 import Header from './Header/header.jsx'
 import SearchTile from './SearchTile/searchtile.jsx'
@@ -8,8 +8,8 @@ import Browse from './Browse/browse.jsx'
 import data from '../../sampldata.js'
 
 class App extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       searchTerm: '',
       results: data.results
@@ -28,7 +28,9 @@ class App extends React.Component {
   searchResult () {
     if (this.state.searchTerm) {
       let newResults = data.results.filter(movie =>
-        movie.title.indexOf(this.state.searchTerm) > -1 || movie.overview.indexOf(this.state.searchTerm))
+        (`${movie.title} ${movie.overview}`).toUpperCase()
+          .indexOf(this.state.searchTerm.toUpperCase()) > -1
+      )
       this.setState({
         results: newResults
       })
@@ -38,15 +40,15 @@ class App extends React.Component {
   render () {
     const {searchTerm, results} = this.state
     return (
-      <BrowserRouter>
-        <div>
-          <Route path='/' render={props => <Header {...props} searchFunc={this.searchFunc}
-            searchTerm={searchTerm} searchResult={this.searchResult} />} /> {// () => <Header searchFunc={this.searchFunc} searchTerm={searchTerm}
-          }
-          <Route exact path='/' render={props => <SearchTile {...props} searchFunc={this.searchFunc} searchTerm={searchTerm} searchResult={this.searchResult} />} />
-          <Route exact path='/browse' render={props => <Browse {...props} results={results} />} />
-        </div>
-      </BrowserRouter>
+      <div>
+        <Route path='/' render={props => <Header {...props} searchFunc={this.searchFunc}
+          searchTerm={searchTerm} searchResult={this.searchResult} />} /> {// () => <Header searchFunc={this.searchFunc} searchTerm={searchTerm}
+        }
+        <Route exact path='/' render={props => <SearchTile {...props} searchFunc={this.searchFunc}
+          searchTerm={searchTerm} searchResult={this.searchResult} />} />
+
+        <Route exact path='/browse' render={props => <Browse {...props} results={results} />} />
+      </div>
     )
   }
 }

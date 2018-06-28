@@ -1,25 +1,34 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+
 import Search from '../../shared/Search/search.jsx'
 
-const Header = (props) => {
-  console.log(props, '@header')
-  return (
-    <section className='hero is-primary'>
-      <div className='hero-body'>
-        <div className='container'>
-          <h1 className='title'>
+class Header extends React.Component {
+  constructor (props) {
+    super()
+  }
+  render () {
+    // const {searchTerm} = this.props
+    return (
+      <section className='hero is-primary'>
+        <div className='hero-body'>
+          <div className='container'>
+            <h1 className='title'>
+              <Link to='/'>
         Pick-Flix
-          </h1>
-          <h2 className='subtitle'>
+              </Link>
+            </h1>
+            <h2 className='subtitle'>
           Movie Database
-          </h2>
+            </h2>
+          </div>
+          {this.props.location.pathname !== '/'
+            ? <div className='container'><Search {...this.props} /></div>
+            : null}
         </div>
-        {props.location.pathname !== '/'
-          ? <div className='container'><Search /></div>
-          : null}
-      </div>
-    </section>
-  )
+      </section>
+    )
+  }
 }
 
 export default Header

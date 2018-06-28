@@ -11,6 +11,7 @@ class Search extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   handleChange (e) {
@@ -19,7 +20,15 @@ class Search extends React.Component {
     })
     this.props.searchFunc(e.target.value)
   }
+
+  handleSearch () {
+    if (this.props.searchResult) {
+      this.props.searchResult()
+    }
+  }
+
   render () {
+    console.log(this.props, '@browse')
     const searchTerm = this.state.searchTerm
     return (
       <div className='field has-addons'>
@@ -29,7 +38,7 @@ class Search extends React.Component {
             value={searchTerm || ''} onChange={this.handleChange} />
         </div>
         <div className='control'>
-          <Link to='/browse' className='button is-info'>
+          <Link to='browse' className='button is-info' onClick={this.handleSearch} >
             <SearchLogo height={25} width={25} fill={'white'} />
           </Link>
         </div>

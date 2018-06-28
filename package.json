@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config ./webpack/webpack.dev.js",
     "dev-server": "webpack-dev-server --config ./webpack/webpack.dev.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest"
   },
   "repository": {
     "type": "git",
@@ -32,11 +32,28 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.2.0",
+    "jest-serializer-enzyme": "^1.0.0",
+    "react-test-renderer": "^16.4.1",
+    "require-hacker": "^3.0.1",
     "style-loader": "^0.21.0",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
+  },
+  "jest": {
+    "verbose": true,
+    "moduleNameMapper": {
+      "\\.(jpg|png|svg)$": "<rootDir>/reactnull.js"
+    },
+    "snapshotSerializers": [
+      "jest-serializer-enzyme"
+    ]
   }
 }

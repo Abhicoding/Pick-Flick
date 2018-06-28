@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 import SearchLogo from '../../../public/search.svg'
 
-class Search extends React.Component {
+export default class Search extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -28,7 +28,6 @@ class Search extends React.Component {
   }
 
   render () {
-    console.log(this.props, '@browse')
     const searchTerm = this.state.searchTerm
     return (
       <div className='field has-addons'>
@@ -46,5 +45,3 @@ class Search extends React.Component {
     )
   }
 }
-
-export default Search

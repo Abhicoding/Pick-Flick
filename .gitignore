@@ -3,3 +3,4 @@ private.js
 sampldata.js
 public/bundle.js.map
 public/bundle.js
+__tests__/__snapshots__

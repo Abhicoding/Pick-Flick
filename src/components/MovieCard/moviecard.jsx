@@ -1,13 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
-float: left;
-width: 30%;
-hegith: 40%;
-margin-left: 2.5%;
-margin-top: 2%`
-
 const MovieCard = (movie) => {
   return (
     <Wrapper>
@@ -28,5 +21,12 @@ const MovieCard = (movie) => {
     </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+float: left;
+width: 30%;
+hegith: 40%;
+margin-left: 2.5%;
+margin-top: 2%`
 
 export default MovieCard

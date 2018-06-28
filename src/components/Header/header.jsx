@@ -8,7 +8,6 @@ class Header extends React.Component {
     super()
   }
   render () {
-    // const {searchTerm} = this.props
     return (
       <section className='hero is-primary'>
         <div className='hero-body'>

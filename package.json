@@ -51,9 +51,6 @@
     "verbose": true,
     "moduleNameMapper": {
       "\\.(jpg|png|svg)$": "<rootDir>/reactnull.js"
-    },
-    "snapshotSerializers": [
-      "jest-serializer-enzyme"
-    ]
+    }
   }
 }

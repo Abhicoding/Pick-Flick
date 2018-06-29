@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Abhicoding/pick-flick#readme",
   "dependencies": {
     "bulma": "^0.7.1",
+    "flow-bin": "^0.75.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",

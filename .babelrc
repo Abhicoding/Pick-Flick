@@ -1,5 +1,5 @@
 {
-    "presets": ["react", ["env", {
+    "presets": ["react", "flow", ["env", {
       "targets": {
         "browsers": "last 2 versions"
       },

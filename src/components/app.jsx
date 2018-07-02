@@ -1,9 +1,10 @@
 import React from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 
 import Header from './Header/header.jsx'
 import SearchTile from './SearchTile/searchtile.jsx'
 import Browse from './Browse/browse.jsx'
+import MovieDetails from './MovieDetails/moviedetails.jsx'
 
 import data from '../../sampldata.js'
 
@@ -46,8 +47,11 @@ class App extends React.Component {
         }
         <Route exact path='/' render={props => <SearchTile {...props} searchFunc={this.searchFunc}
           searchTerm={searchTerm} searchResult={this.searchResult} />} />
+        <Switch>
+          <Route exact path='/browse' render={props => <Browse {...props} results={results} />} />
 
-        <Route exact path='/browse' render={props => <Browse {...props} results={results} />} />
+          <Route exact path='/:id' render={props => <MovieDetails {...props} />} />
+        </Switch>
       </div>
     )
   }

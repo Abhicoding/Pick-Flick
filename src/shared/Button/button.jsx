@@ -1,6 +1,14 @@
-import React from 'react'
+// @flow
 
-const Button = (props) => {
+import * as React from 'react'
+
+type Props = {
+  style: string,
+  children: React.Node
+}
+
+const Button = (props: Props) => {
+  console.log(props.children)
   return (
     <div className='control'>
       <p className={'button ' + props.style}>

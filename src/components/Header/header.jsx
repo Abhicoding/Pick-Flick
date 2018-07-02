@@ -9,7 +9,7 @@ class Header extends React.Component {
   }
   render () {
     return (
-      <section className='hero is-primary'>
+      <section className='hero' >
         <div className='hero-body'>
           <div className='container'>
             <h1 className='title'>
@@ -21,7 +21,7 @@ class Header extends React.Component {
           Movie Database
             </h2>
           </div>
-          {this.props.location.pathname !== '/'
+          {this.props.location.pathname === '/browse'
             ? <div className='container'><Search {...this.props} /></div>
             : null}
         </div>

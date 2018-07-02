@@ -6,3 +6,5 @@ public/bundle.js
 /__tests__/__snapshots__
 /coverage
 reactnull.js
+/flow-typed
+/.vscode

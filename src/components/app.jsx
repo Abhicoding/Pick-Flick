@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import {Route, Switch} from 'react-router-dom'
 
@@ -8,8 +9,10 @@ import MovieDetails from './MovieDetails/moviedetails.jsx'
 
 import data from '../../sampldata.js'
 
-class App extends React.Component {
-  constructor (props) {
+class App extends React.Component<any,State> {
+  searchFunc: function 
+  searchResult : function
+  constructor (props:any) {
     super(props)
     this.state = {
       searchTerm: '',
@@ -19,8 +22,7 @@ class App extends React.Component {
     this.searchResult = this.searchResult.bind(this)
   }
 
-  searchFunc (input) {
-    console.log(input, '@searchFunc')
+  searchFunc (input: string) {
     this.setState({
       searchTerm: input
     })
@@ -58,3 +60,25 @@ class App extends React.Component {
 }
 
 export default App
+
+type State = {
+  searchTerm: string,
+  results: Array<Movie>
+}
+
+type Movie = {
+  "vote_count": number, 
+  "id": number, 
+  "video": boolean, 
+  "vote_average": number, 
+  "title": string, 
+  "popularity": number, 
+  "poster_path": string, 
+  "original_language": string, 
+  "original_title": string, 
+  "genre_ids": Array<number>, 
+  "backdrop_path": string, 
+  "adult": boolean, 
+  "overview": string, 
+  "release_date": string
+}

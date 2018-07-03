@@ -4,16 +4,6 @@ import {Link} from 'react-router-dom'
 
 import SearchLogo from '../../../public/search.svg'
 
-type Props = {
-  searchTerm: string,
-  searchResult: function,
-  searchFunc: function
-}
-
-type State = {
-  searchTerm: string
-}
-
 export default class Search extends React.Component <Props, State> {
   handleChange : function
   handleSearch : function
@@ -64,4 +54,14 @@ export default class Search extends React.Component <Props, State> {
       </div>
     )
   }
+}
+
+type Props = {
+  searchTerm: string,
+  searchResult: function,
+  searchFunc: function
+}
+
+type State = {
+  searchTerm: string
 }

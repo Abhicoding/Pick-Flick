@@ -1,10 +1,11 @@
+// @flow
 import React from 'react'
 import {Link} from 'react-router-dom'
 
 import Search from '../../shared/Search/search.jsx'
 
-class Header extends React.Component {
-  constructor (props) {
+class Header extends React.Component<any> {
+  constructor (props: any) {
     super()
   }
   render () {

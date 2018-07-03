@@ -1,8 +1,9 @@
+// @flow
 import React from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
-const MovieCard = (movie) => {
+const MovieCard = (movie : Movie) => {
   let trimmed
   if (movie.title.length > 24) {
     trimmed = movie.overview.substring(0, 88) + ' ...'
@@ -31,6 +32,8 @@ const MovieCard = (movie) => {
   )
 }
 
+export default MovieCard
+
 const Wrapper = styled.div`
 float: left;
 width: 30%;
@@ -42,4 +45,20 @@ margin-top: 2%;
 const Parawrap = styled.div`
 overflow: hidden;`
 
-export default MovieCard
+type Movie = {
+  "vote_count": number, 
+  "id": number, 
+  "video": boolean, 
+  "vote_average": number, 
+  "title": string, 
+  "popularity": number, 
+  "poster_path": string, 
+  "original_language": string, 
+  "original_title": string, 
+  "genre_ids": Array<number>, 
+  "backdrop_path": string, 
+  "adult": boolean, 
+  "overview": string, 
+  "release_date": string
+
+}

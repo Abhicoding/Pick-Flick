@@ -1,14 +1,33 @@
+// @flow
 import React from 'react'
 import styled from 'styled-components'
 
 import key from '../../../private.js'
 
-export default class MovieDetails extends React.Component {
-  constructor (props) {
+const movieObj = {
+  "vote_count": 0, 
+  "id": 0, 
+  "video": false, 
+  "vote_average": 0, 
+  "title": '', 
+  "popularity": 0, 
+  "poster_path": '', 
+  "original_language": '', 
+  "original_title": '', 
+  "genre_ids": [], 
+  "backdrop_path": '', 
+  "adult": false, 
+  "overview": '', 
+  "release_date": ''
+}
+
+
+export default class MovieDetails extends React.Component<any, State> {
+  getImage : function
+  constructor (props:any) {
     super(props)
     this.state = {
-      movie: {}
-    }
+      movie : movieObj}
     this.getImage = this.getImage.bind(this)
   }
 
@@ -30,7 +49,7 @@ export default class MovieDetails extends React.Component {
   }
 
   componentWillUnmount () {
-    this.setState({movie: {}})
+    this.setState({movie: movieObj})
   }
 
   render () {
@@ -79,3 +98,24 @@ const Content3 = styled.div`
     font-weight: 500
     font-size: 1.2em
     color: white`
+
+type Movie = {
+  "vote_count": number, 
+  "id": number, 
+  "video": boolean, 
+  "vote_average": number, 
+  "title": string, 
+  "popularity": number, 
+  "poster_path": string, 
+  "original_language": string, 
+  "original_title": string, 
+  "genre_ids": Array<number>, 
+  "backdrop_path": string, 
+  "adult": boolean, 
+  "overview": string, 
+  "release_date": string
+}
+
+type State = {
+  movie: Movie
+}

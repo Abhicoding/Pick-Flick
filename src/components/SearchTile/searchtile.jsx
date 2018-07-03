@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
@@ -6,12 +7,15 @@ import Search from '../../shared/Search/search.jsx'
 import Button from '../../shared/Button/button.jsx'
 
 type Props = {
-  searchTerm: string
+  searchTerm: string,
+  searchResult: function,
+  searchFunc: function
 }
 
 
-class SearchTile extends React.Component {
-  constructor (props) {
+class SearchTile extends React.Component<Props> {
+  handleClick: function
+  constructor (props: Props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }

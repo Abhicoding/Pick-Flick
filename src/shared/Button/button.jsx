@@ -8,7 +8,6 @@ type Props = {
 }
 
 const Button = (props: Props) => {
-  console.log(props.children)
   return (
     <div className='control'>
       <p className={'button ' + props.style}>

@@ -12,10 +12,7 @@ const Browse = (data: Data) => {
 
 export default Browse
 
-type Data = {
-  "page": number,
-  "total_results": number, 
-  "total_pages": number, 
+type Data = { 
   "results": Array<Movie>,
 }
 
@@ -34,5 +31,4 @@ type Movie = {
   "adult": boolean, 
   "overview": string, 
   "release_date": string
-
 }

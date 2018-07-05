@@ -10,16 +10,15 @@ import MovieDetails from './MovieDetails/moviedetails.jsx'
 import data from '../../sampldata.js'
 
 class App extends React.Component<any,State> {
-  searchFunc: function 
-  searchResult : function
-  constructor (props:any) {
+  constructor (props: any) {
     super(props)
     this.state = {
       searchTerm: '',
       results: data.results
     }
-    this.searchFunc = this.searchFunc.bind(this)
-    this.searchResult = this.searchResult.bind(this)
+    const self : any = this
+    self.searchFunc = self.searchFunc.bind(self)
+    self.searchResult = self.searchResult.bind(self)
   }
 
   searchFunc (input: string) {
@@ -63,7 +62,7 @@ export default App
 
 type State = {
   searchTerm: string,
-  results: Array<Movie>
+  results: Array<any>
 }
 
 type Movie = {

@@ -23,12 +23,13 @@ const movieObj = {
 
 
 export default class MovieDetails extends React.Component<any, State> {
-  getImage : function
   constructor (props:any) {
     super(props)
     this.state = {
-      movie : movieObj}
-    this.getImage = this.getImage.bind(this)
+      movie : movieObj
+    }
+    const self: any = this
+    self.getImage = self.getImage.bind(self)
   }
 
   getImage () {

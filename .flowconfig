@@ -1,10 +1,9 @@
 [ignore]
-<PROJECT_ROOT>/node_modules/styled-components/*
-.*/node_modules/.*
+.*/node_modules/(?!(styled-components|react|next|memory-cache|next-routes|prop-types|webpack|redux|express))/*.
 [include]
 
 [libs]
-styled-components
+
 [lints]
 
 [options]

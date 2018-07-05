@@ -5,17 +5,17 @@ import {Link} from 'react-router-dom'
 import SearchLogo from '../../../public/search.svg'
 
 export default class Search extends React.Component <Props, State> {
-  handleChange : function
-  handleSearch : function
-  handleEnter : function
+  // handleChange : Function
+  // handleSearch : Function
+  // handleEnter : Function
   constructor (props: Props) {
     super(props)
     this.state = {
       searchTerm: this.props.searchTerm
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSearch = this.handleSearch.bind(this)
-    this.handleEnter = this.handleEnter.bind(this)
+    const self : any = this
+    self.handleSearch = self.handleSearch.bind(self)
+    self.handleEnter = self.handleEnter.bind(self)
   }
 
   handleChange (e: SyntheticInputEvent<EventTarget>):void {
@@ -42,7 +42,7 @@ export default class Search extends React.Component <Props, State> {
         <div className='control'>
           <input className='input' type='text'
             placeholder={!searchTerm ? 'Search for a movie' : ''}
-            value={searchTerm || ''} onChange={this.handleChange}
+            value={searchTerm || ''} onChange={this.handleChange.bind(this)}
             onKeyUp={this.handleEnter} />
         </div>
         <div className='control'>
@@ -58,8 +58,8 @@ export default class Search extends React.Component <Props, State> {
 
 type Props = {
   searchTerm: string,
-  searchResult: function,
-  searchFunc: function
+  searchResult: Function,
+  searchFunc: Function
 }
 
 type State = {

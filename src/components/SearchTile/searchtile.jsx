@@ -8,20 +8,28 @@ import Button from '../../shared/Button/button.jsx'
 
 type Props = {
   searchTerm: string,
-  searchResult: function,
-  searchFunc: function
+  searchResult: Function,
+  searchFunc: Function,
+  history: any,
+  location: any,
+  match: any
 }
 
 
 class SearchTile extends React.Component<Props> {
-  handleClick: function
   constructor (props: Props) {
     super(props)
-    this.handleClick = this.handleClick.bind(this)
+    const self: any = this
+    self.handleSearchClick = self.handleSearchClick.bind(self)
   }
 
-  handleClick () {
+  handleSearchClick () {
     this.props.searchResult()
+  }
+
+  handleBrowseClick () {
+    this.props.history.push('/browse')
+    console.log('this ran')
   }
 
   render () {
@@ -33,8 +41,8 @@ class SearchTile extends React.Component<Props> {
               <Search {...this.props} />
             </StyleSearch>
             <StyleButton>
-              <Button style={'is-danger'} >
-                <Link to='/browse' >Browse all</Link>
+              <Button style={'is-danger'} onClick={this.handleBrowseClick}>
+                Browse all
               </Button>
             </StyleButton>
           </Content>

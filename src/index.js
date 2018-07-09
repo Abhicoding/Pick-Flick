@@ -7,9 +7,7 @@ import 'bulma/css/bulma.css'
 import App from './components/app.jsx'
 
 render(
-  <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Provider>
 , document.getElementById('app'))

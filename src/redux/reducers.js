@@ -5,6 +5,7 @@ const DEFAULT_STATE = {
 }
 
 const setSearchTerm = (state, action) => {
+    console.log(action.payload)
     return Object.assign({}, state, {searchTerm: action.payload})
 }
 

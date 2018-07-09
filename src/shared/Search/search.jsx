@@ -5,9 +5,6 @@ import {Link} from 'react-router-dom'
 import SearchLogo from '../../../public/search.svg'
 
 export default class Search extends React.Component <Props, State> {
-  // handleChange : Function
-  // handleSearch : Function
-  // handleEnter : Function
   constructor (props: Props) {
     super(props)
     this.state = {
@@ -25,8 +22,11 @@ export default class Search extends React.Component <Props, State> {
     this.props.searchFunc(e.target.name)
   }
 
-  handleEnter (e: SyntheticInputEvent<EventTarget>):void {
-    console.log(e, 'handleEnter')
+  handleEnter (e: SyntheticKeyboardEvent<HTMLEventTElement>):void {
+    console.log(e.keyCode, 'handleEnter')
+    if (e.keyCode === 13) {
+      this.handleSearch()
+    }
   }
 
   handleSearch () {

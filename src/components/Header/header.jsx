@@ -4,11 +4,7 @@ import {Link} from 'react-router-dom'
 
 import Search from '../../shared/Search/search.jsx'
 
-class Header extends React.Component<any> {
-  constructor (props: any) {
-    super()
-  }
-  render () {
+const Header = (props: any) => {
     return (
       <section className='hero' >
         <div className='hero-body'>
@@ -22,13 +18,12 @@ class Header extends React.Component<any> {
           Movie Database
             </h2>
           </div>
-          {this.props.location.pathname === '/browse'
-            ? <div className='container'><Search {...this.props} /></div>
+          {props.location.pathname === '/browse'
+            ? <div className='container'><Search {...props} /></div>
             : null}
         </div>
       </section>
     )
   }
-}
 
 export default Header

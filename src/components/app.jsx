@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
-import {Route, Switch} from 'react-router-dom'
+import {withRouter ,Route, Switch} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import Header from './Header/header.jsx'
 import SearchTile from './SearchTile/searchtile.jsx'
@@ -10,10 +11,10 @@ import MovieDetails from './MovieDetails/moviedetails.jsx'
 import data from '../../sampldata.js'
 
 class App extends React.Component<any,State> {
-  constructor (props: any) {
+  constructor (props) {
     super(props)
     this.state = {
-      searchTerm: '',
+      searchTerm: this.props.searchTerm,
       results: data.results
     }
     const self : any = this
@@ -44,10 +45,12 @@ class App extends React.Component<any,State> {
     return (
       <div>
         <Route path='/' render={props => <Header {...props} searchFunc={this.searchFunc}
-          searchTerm={searchTerm} searchResult={this.searchResult} />} /> {// () => <Header searchFunc={this.searchFunc} searchTerm={searchTerm}
+          searchTerm={searchTerm} 
+          searchResult={this.searchResult} />} />
         }
         <Route exact path='/' render={props => <SearchTile {...props} searchFunc={this.searchFunc}
-          searchTerm={searchTerm} searchResult={this.searchResult} />} />
+          searchTerm={searchTerm} 
+          searchResult={this.searchResult} />} />
         <Switch>
           <Route exact path='/browse' render={props => <Browse {...props} results={results} />} />
 
@@ -58,7 +61,8 @@ class App extends React.Component<any,State> {
   }
 }
 
-export default App
+const mapStateToProps = (state) => ({searchTerm : state.searchTerm})
+export default withRouter(connect(mapStateToProps)(App))
 
 type State = {
   searchTerm: string,

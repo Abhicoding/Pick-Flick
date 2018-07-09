@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
-import {withRouter ,Route, Switch} from 'react-router-dom'
-import {connect} from 'react-redux'
+import {Route, Switch} from 'react-router-dom'
 
 import Header from './Header/header.jsx'
 import SearchTile from './SearchTile/searchtile.jsx'
@@ -14,7 +13,7 @@ class App extends React.Component<any,State> {
   constructor (props) {
     super(props)
     this.state = {
-      searchTerm: this.props.searchTerm,
+      searchTerm: '',
       results: data.results
     }
     const self : any = this
@@ -23,6 +22,7 @@ class App extends React.Component<any,State> {
   }
 
   searchFunc (input: string) {
+    console.log(this.state.searchTerm, 'searchFUnc', input, 'input')
     this.setState({
       searchTerm: input
     })
@@ -61,8 +61,7 @@ class App extends React.Component<any,State> {
   }
 }
 
-const mapStateToProps = (state) => ({searchTerm : state.searchTerm})
-export default withRouter(connect(mapStateToProps)(App))
+export default App
 
 type State = {
   searchTerm: string,

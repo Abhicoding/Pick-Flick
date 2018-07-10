@@ -1,19 +1,43 @@
 // @flow
 import * as React from 'react'
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-import MovieCard from '../MovieCard/moviecard.jsx'
+import {getNextPage} from '../../redux/actionCreators.js'
 
-const Browse = (data: Data) => {
+// import MovieCard from '../MovieCard/moviecard.jsx'
+
+class Browse extends React.Component <any, any>{
+  constructor(props) {
+    super (props)
+  }
+  componentDidMount () {
+    this.props.handleNextPage()
+  }
+
+  render () {
+    console.log(this.props)
   return (
-    data.results.map((movie) =>
-      <MovieCard key={movie.id} {...movie} />
-    ))
+    // data.results.map((movie) =>
+    //   <MovieCard key={movie.id} {...movie} />
+    // )
+    <h1>B</h1>
+  )}
 }
 
-export default Browse
+const mapStateToProps = (state: any) => ({results : state.results,
+searchTerm: state.searchTerm})
+
+const mapDispatchToProps = (dispatch: Function) => ({
+  handleNextPage () {
+    dispatch(getNextPage(['newMovie']))
+  }
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Browse))
 
 type Data = { 
-  "results": Array<Movie>,
+  "results": Array<Movie>
 }
 
 type Movie = {

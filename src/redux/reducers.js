@@ -1,5 +1,7 @@
 import { SET_SEARCH_TERM, GET_NEXT_PAGE } from "./actions.js";
 
+import {url} from '../../private.js'
+
 const DEFAULT_STATE = {
     searchTerm: '',
     page: 1,
@@ -11,7 +13,11 @@ const setSearchTerm = (state, action) => {
 }
 
 const getNextPage = (state, action) => {
-    return Object.assign({}, state, {results: state.results.concat(action.payload)})
+    let temp = Object.assign({}, state, {page: state.page++})
+    fetch(url.movie_fetch + state.page)
+    .then(res => res.json)
+    .then(data => Object.assign({}, temp, {results : temp.results.concat[data.results]}))
+    return temp
 }
 
 const rootReducer = (state = DEFAULT_STATE, action) => {

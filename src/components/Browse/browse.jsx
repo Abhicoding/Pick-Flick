@@ -3,16 +3,22 @@ import * as React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import {getNextPage} from '../../redux/actionCreators.js'
-
 // import MovieCard from '../MovieCard/moviecard.jsx'
+import Button from '../../shared/Button/button.jsx'
+
+import {getNextPage} from '../../redux/actionCreators.js'
+import url from '../../../private.js'
 
 class Browse extends React.Component <any, any>{
   constructor(props) {
     super (props)
   }
   componentDidMount () {
-    this.props.handleNextPage()
+    if (this.props.searchTerm === '') {
+      fetch(url + this.props.page)
+      .then(data => data.json())
+      .then(moviedata => this.props.handleNextPage(moviedata.results))
+    }
   }
 
   render () {
@@ -21,7 +27,7 @@ class Browse extends React.Component <any, any>{
     // data.results.map((movie) =>
     //   <MovieCard key={movie.id} {...movie} />
     // )
-    <h1>B</h1>
+    <Button onClick={this.props.handleNextPage} >More</Button>
   )}
 }
 
@@ -30,7 +36,7 @@ searchTerm: state.searchTerm})
 
 const mapDispatchToProps = (dispatch: Function) => ({
   handleNextPage () {
-    dispatch(getNextPage(['newMovie']))
+    dispatch(getNextPage())
   }
 })
 

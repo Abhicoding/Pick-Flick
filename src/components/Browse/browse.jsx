@@ -4,20 +4,31 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 // import MovieCard from '../MovieCard/moviecard.jsx'
-import Button from '../../shared/Button/button.jsx'
 
 import {getNextPage} from '../../redux/actionCreators.js'
-import url from '../../../private.js'
+import {url} from '../../../private.js'
 
 class Browse extends React.Component <any, any>{
   constructor(props) {
     super (props)
+    this.state = {
+      page: this.props.page
+    }
+    const self : any = this
+    self.handlePageChange = self.handlePageChange.bind(self)
   }
+
+  handlePageChange () {
+    this.props.handleNextPage(this.state.page++)
+  }
+
   componentDidMount () {
     if (this.props.searchTerm === '') {
-      fetch(url + this.props.page)
-      .then(data => data.json())
-      .then(moviedata => this.props.handleNextPage(moviedata.results))
+      console.log(url.movie_fetch+this.props.page)
+      fetch(url.movie_fetch + this.props.page)
+      .then(res => res.json())
+      .then(data => console.log(data))
+      // .then(moviedata => this.props.handleNextPage(moviedata.results))
     }
   }
 
@@ -27,16 +38,17 @@ class Browse extends React.Component <any, any>{
     // data.results.map((movie) =>
     //   <MovieCard key={movie.id} {...movie} />
     // )
-    <Button onClick={this.props.handleNextPage} >More</Button>
+    <button onClick={this.handlePageChange} >More</button>
   )}
 }
 
 const mapStateToProps = (state: any) => ({results : state.results,
-searchTerm: state.searchTerm})
+searchTerm: state.searchTerm, page: state.page})
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  handleNextPage () {
-    dispatch(getNextPage())
+  handleNextPage (page) {
+    console.log(page, 'inside handle')
+    dispatch(getNextPage(page))
   }
 })
 

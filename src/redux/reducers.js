@@ -13,10 +13,11 @@ const setSearchTerm = (state, action) => {
 }
 
 const getNextPage = (state, action) => {
-    let temp = Object.assign({}, state, {page: state.page++})
-    fetch(url.movie_fetch + state.page)
-    .then(res => res.json)
-    .then(data => Object.assign({}, temp, {results : temp.results.concat[data.results]}))
+    console.log(action, 'getNextPage')
+    let temp = Object.assign({}, state, {page: action.payload})
+    // fetch(url.movie_fetch + state.page)
+    // .then(res => res.json())
+    // .then(data => Object.assign({}, temp, {results : temp.results.concat[data.results]}))
     return temp
 }
 

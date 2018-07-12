@@ -22,10 +22,11 @@ class Browse extends React.Component <any, any>{
     console.log(this.props, 'props log')
   return (
     <div>
-    {/* {this.props.results.map((movie) =>
+      <div>{this.props.results.map((movie) =>
       <MovieCard key={movie.id} {...movie} />
-    )} */}
-    <button onClick={this.handlePageChange}> More </button>
+    )}
+      </div>
+      <button onClick={this.handlePageChange}> More </button>
     </div>
   )}
 }

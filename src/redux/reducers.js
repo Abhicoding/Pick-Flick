@@ -3,16 +3,16 @@ import { SET_SEARCH_TERM, SET_NEXT_PAGE, GET_NEXT_PAGE } from "./actions.js";
 import {combineReducers} from 'redux'
 
 const setSearchTerm = (state, action) => {
-    return Object.assign({}, state, {searchTerm: action.payload})
+    return action.payload
 }
 
 const setNextPage = (state, action) => {
-    return Object.assign({}, state, {page: action.payload})
+    return action.payload
 }
 
 const getNextPage = (state, action) => {
     console.log(action.payload, 'payload to getNextpage')
-    return Object.assign({}, state, {results: [...action.payload]})
+    return state.concat(action.payload)
 }
 
 const searchReducer = (state = '', action) => {
@@ -43,7 +43,7 @@ const resultsReducer = (state=[], action) => {
 }
 
 const rootReducer = combineReducers({
-    search: searchReducer,
+    searchTerm: searchReducer, 
     page: pageReducer,
     results: resultsReducer
 })

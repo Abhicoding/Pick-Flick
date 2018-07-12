@@ -1,35 +1,51 @@
-import { SET_SEARCH_TERM, GET_NEXT_PAGE } from "./actions.js";
+import { SET_SEARCH_TERM, SET_NEXT_PAGE, GET_NEXT_PAGE } from "./actions.js";
 
-import {url} from '../../private.js'
-
-const DEFAULT_STATE = {
-    searchTerm: '',
-    page: 1,
-    results: []
-}
+import {combineReducers} from 'redux'
 
 const setSearchTerm = (state, action) => {
     return Object.assign({}, state, {searchTerm: action.payload})
 }
 
-const getNextPage = (state, action) => {
-    console.log(action, 'getNextPage')
-    let temp = Object.assign({}, state, {page: action.payload})
-    // fetch(url.movie_fetch + state.page)
-    // .then(res => res.json())
-    // .then(data => Object.assign({}, temp, {results : temp.results.concat[data.results]}))
-    return temp
+const setNextPage = (state, action) => {
+    return Object.assign({}, state, {page: action.payload})
 }
 
-const rootReducer = (state = DEFAULT_STATE, action) => {
+const getNextPage = (state, action) => {
+    console.log(action.payload, 'payload to getNextpage')
+    return Object.assign({}, state, {results: [...action.payload]})
+}
+
+const searchReducer = (state = '', action) => {
     switch (action.type) {
         case SET_SEARCH_TERM:
         return setSearchTerm(state, action)
-        case GET_NEXT_PAGE:
+        default:
+        return state
+    }
+}
+
+const pageReducer = (state = 1, action) => {
+    switch(action.type) {
+        case SET_NEXT_PAGE:
+        return setNextPage(state, action)
+        default:
+        return state
+    }
+}
+
+const resultsReducer = (state=[], action) => {
+    switch (action.type) {
+        case 'GET_NEXT_PAGE_FULFILLED':
         return getNextPage(state, action)
         default:
         return state
     }
 }
+
+const rootReducer = combineReducers({
+    search: searchReducer,
+    page: pageReducer,
+    results: resultsReducer
+})
 
 export default rootReducer

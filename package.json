@@ -29,12 +29,14 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
+    "redux-promise-middleware": "^5.1.1",
     "styled-components": "^3.3.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
@@ -45,6 +47,7 @@
     "jest-serializer-enzyme": "^1.0.0",
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.4.1",
+    "redux-logger": "^3.0.6",
     "require-hacker": "^3.0.1",
     "style-loader": "^0.21.0",
     "webpack": "^4.12.1",

@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import key from '../../../private.js'
+import {key} from '../../../private.js'
 
 const movieObj = {
   "vote_count": 0, 

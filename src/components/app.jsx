@@ -16,8 +16,9 @@ const App  = (props: any) => {
       <Provider store={store}>
         <div>
           <Route path='/' render={props => <Header {...props} />} />
-          }
+
           <Route exact path='/' render={props => <SearchTile {...props} />} />
+          
           <Switch>
             <Route exact path='/browse' render={props => <Browse {...props} />} />
 

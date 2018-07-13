@@ -31,7 +31,9 @@ class Browse extends React.Component <any, any>{
       <MovieCard key={movie.id} {...movie} />
     )}
       </div>
-      <button onClick={this.handlePageChange}> More </button>
+      <div>
+        <a className="button is-warning is-fullwidth" onClick={this.handlePageChange}>More</a>
+      </div>
     </div>
   )}
 }

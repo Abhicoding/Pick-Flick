@@ -14,12 +14,17 @@ class Browse extends React.Component <any, any>{
     self.handlePageChange = self.handlePageChange.bind(self)
   }
 
+  componentWillMount () {
+    if (this.props.page === 1 && this.props.results.length === 0) {
+      this.props.handleNextPage(this.props.page)
+    } 
+  }
+
   handlePageChange () {
     this.props.handleNextPage(this.props.page + 1)
   }
 
   render () {
-    console.log(this.props, 'props log')
   return (
     <div>
       <div>{this.props.results.map((movie) =>

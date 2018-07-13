@@ -11,8 +11,11 @@ const setNextPage = (state, action) => {
 }
 
 const getNextPage = (state, action) => {
-    console.log(action.payload, 'payload to getNextpage')
     return state.concat(action.payload)
+}
+
+const getSearchResults = (state, action) => {
+    return action.payload
 }
 
 const searchReducer = (state = '', action) => {
@@ -37,6 +40,8 @@ const resultsReducer = (state=[], action) => {
     switch (action.type) {
         case 'GET_NEXT_PAGE_FULFILLED':
         return getNextPage(state, action)
+        case 'GET_SEARCH_RESULTS_FULFILLED':
+        return getSearchResults(state, action)
         default:
         return state
     }

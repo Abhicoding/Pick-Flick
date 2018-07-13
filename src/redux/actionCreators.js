@@ -1,4 +1,4 @@
-import {SET_SEARCH_TERM, SET_NEXT_PAGE, GET_NEXT_PAGE} from './actions.js'
+import {SET_SEARCH_TERM, SET_NEXT_PAGE, GET_NEXT_PAGE, GET_SEARCH_RESULTS} from './actions.js'
 
 import {url} from '../../private.js'
 
@@ -11,9 +11,24 @@ export function setNextPage (pageNum) {
 }
 
 export function getNextPage (pageNum) {
-    const temp = {type: GET_NEXT_PAGE, payload: fetch(url.movie_fetch + pageNum)
-        .then(res => res.json())
-        .then(data => (data.results))}
-    console.log(temp, 'action creator')
-    return temp
+    return (
+        {
+            type: GET_NEXT_PAGE, 
+            payload: fetch(url.movie_fetch + pageNum)
+                .then(res => res.json())
+                .then(data => data.results)
+        }
+    )
+}
+
+export function getSearchResults (searchTerm) {
+    console.log(searchTerm, 'inside getSearchResults action creator')
+    return (
+        {
+            type: GET_SEARCH_RESULTS,
+            payload: fetch(url.search_query(searchTerm))
+                .then(res => res.json())
+                .then(data => data.results)
+        }
+    )
 }

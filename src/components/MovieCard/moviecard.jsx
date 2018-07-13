@@ -1,14 +1,15 @@
-// @flow
 import React from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
-const MovieCard = (movie : Movie) => {
+const MovieCard = (movie) => {
   let trimmed
-  if (movie.title.length > 24) {
-    trimmed = movie.overview.substring(0, 88) + ' ...'
-  } else {
-    trimmed = movie.overview.substring(0, 120) + ' ...'
+  if (movie.title) {
+    if (movie.title.length > 24) {
+      trimmed = movie.overview.substring(0, 88) + ' ...'
+    } else {
+      trimmed = movie.overview.substring(0, 120) + ' ...'
+    }
   }
   return (
     <Wrapper>
@@ -17,13 +18,21 @@ const MovieCard = (movie : Movie) => {
           <div className='tile is-parent'>
             <article className='tile is-child box' >
               <img src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} />
-              <p className='title'>{movie.title}</p>
-              <p className='subtitle'>{movie.vote_average}</p>
-              <div className='content'>
-                <Parawrap>
-                  <p>{trimmed}</p>
-                </Parawrap>
-              </div>
+              <p className='title'>{movie.title||movie.name}</p>
+              {
+                movie.vote_average 
+                ? <p className='subtitle'>{movie.vote_average}</p> 
+                : null
+              }
+              {
+                trimmed
+                ?  <div className='content'>
+                    <Parawrap>
+                      <p>{trimmed}</p>
+                    </Parawrap>
+                  </div>
+                : null
+              }
             </article>
           </div>
         </div>

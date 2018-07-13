@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 import styled from 'styled-components'
 
@@ -22,20 +21,21 @@ const movieObj = {
 }
 
 
-export default class MovieDetails extends React.Component<any, State> {
-  constructor (props:any) {
+export default class MovieDetails extends React.Component {
+  constructor (props) {
     super(props)
     this.state = {
       movie : movieObj
     }
-    const self: any = this
+    const self= this
     self.getImage = self.getImage.bind(self)
   }
 
   getImage () {
-    fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${key.api_key}&language=en-US`)
+    fetch(`https://api.themoviedb.org/3/collection/${this.props.match.params.id}?api_key=${key.api_key}&language=en-US`)
       .then(data => data.json())
       .then(data => {
+        console.log(data, 'getting anything via search')
         this.setState({
           movie: data
         })
@@ -100,23 +100,23 @@ const Content3 = styled.div`
     font-size: 1.2em
     color: white`
 
-type Movie = {
-  "vote_count": number, 
-  "id": number, 
-  "video": boolean, 
-  "vote_average": number, 
-  "title": string, 
-  "popularity": number, 
-  "poster_path": string, 
-  "original_language": string, 
-  "original_title": string, 
-  "genre_ids": Array<number>, 
-  "backdrop_path": string, 
-  "adult": boolean, 
-  "overview": string, 
-  "release_date": string
-}
+// type Movie = {
+//   "vote_count": number, 
+//   "id": number, 
+//   "video": boolean, 
+//   "vote_average": number, 
+//   "title": string, 
+//   "popularity": number, 
+//   "poster_path": string, 
+//   "original_language": string, 
+//   "original_title": string, 
+//   "genre_ids": Array<number>, 
+//   "backdrop_path": string, 
+//   "adult": boolean, 
+//   "overview": string, 
+//   "release_date": string
+// }
 
-type State = {
-  movie: Movie
-}
+// type State = {
+//   movie: Movie
+// }

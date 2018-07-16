@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import {withRouter, Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import SearchLogo from '../../../public/search.svg'
@@ -18,7 +18,10 @@ class Search extends React.Component <Props, State> {
   }
 
   search () {
-    this.props.handleSearchQuery(this.props.searchTerm)
+    if (this.props.searchTerm) {
+      this.props.handleSearchQuery(this.props.searchTerm)
+      this.props.history.push('browse')
+    }
   }
 
   render () {
@@ -31,9 +34,9 @@ class Search extends React.Component <Props, State> {
             defaultValue={searchTerm || ''} onChange={this.props.handleSearchTermChange} />
         </div>
         <div className='control'>
-          <Link to='browse' className='button is-info' onClick={this.search} >
+          <a className='button is-info' onClick={this.search} >
             <SearchLogo height={25} width={25} fill={'white'} />
-          </Link>
+          </a>
         </div>
       </div>
     )
@@ -53,6 +56,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search))
 
 type Props = {
+  history: any,
   searchTerm: string,
   handleSearchTermChange: Function,
   handleSearchQuery: Function

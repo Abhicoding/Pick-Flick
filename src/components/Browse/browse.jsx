@@ -3,7 +3,7 @@ import * as React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import MovieCard from '../MovieCard/moviecard.jsx'
+import CardLayout from '../CardLayout/cardlayout.jsx'
 
 import {setNextPage, getNextPage} from '../../redux/actionCreators.js'
 
@@ -27,10 +27,12 @@ class Browse extends React.Component <any, any>{
   render () {
   return (
     <div>
-      <div>{this.props.results.map((movie) =>
-      <MovieCard key={movie.id} {...movie} />
-    )}
-      </div>
+          {this.props.results.map((e, i) => {
+            return i%4===0 ? this.props.results.slice(i, i+4) : null
+           })
+          .filter (e => e)
+          .map((e, i) => <CardLayout key= {i} movieArray= {e} />)
+        }
       <div>
         <a className="button is-warning is-fullwidth" onClick={this.handlePageChange}>More</a>
       </div>

@@ -22,7 +22,6 @@ export function getNextPage (pageNum) {
 }
 
 export function getSearchResults (searchTerm) {
-    console.log(searchTerm, 'inside getSearchResults action creator')
     return (
         {
             type: GET_SEARCH_RESULTS,

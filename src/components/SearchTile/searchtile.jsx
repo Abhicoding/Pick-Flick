@@ -2,9 +2,9 @@
 import * as React from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
+import {connect} from 'react-redux'
 
 import Search from '../../shared/Search/search.jsx'
-import Button from '../../shared/Button/button.jsx'
 
 type Props = {
   searchTerm: string,
@@ -29,48 +29,30 @@ class SearchTile extends React.Component<Props> {
 
   handleBrowseClick () {
     this.props.history.push('/browse')
-    console.log('this ran')
   }
 
   render () {
     return (
       <Wrapper>
-        <article className='tile is-child notification is-warning'>
-          <Content>
-            <StyleSearch>
+        <article className='field is-grouped is-warning'>
+        <div className='control'>
               <Search {...this.props} />
-            </StyleSearch>
-            <StyleButton>
-              <Button style={'is-danger'} onClick={this.handleBrowseClick}>
+            </div>
+            <div className='control'>
+              <Link className= 'button is-danger' to='browse'>
                 Browse all
-              </Button>
-            </StyleButton>
-          </Content>
+              </Link>
+            </div>
         </article>
       </Wrapper >
     )
   }
 }
 
+export default SearchTile
+
 const Wrapper = styled.div`
 width: max-content;
 box-sizing: border-box;
-height: 50%;
-margin-top: 5%;
-margin-left: 30%;
+margin: auto;
 `
-const Content = styled.span`
-display: float;
-`
-const StyleButton = styled.div`
-width: max-content;
-margin-left: 5%;
-`
-
-const StyleSearch = styled.div`
-width: max-content;
-margin-left: 5%;
-width: 60%;
-`
-
-export default SearchTile

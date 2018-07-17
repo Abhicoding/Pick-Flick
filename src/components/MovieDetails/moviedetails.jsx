@@ -7,9 +7,6 @@ import styled from 'styled-components'
 import { getMovieDetails } from '../../redux/actionCreators.js';
 
 class MovieDetails extends React.Component<Props> {
-  constructor (props) {
-    super()
-  }
 
   componentWillMount () {
     this.props.fetchMovie(this.props.match.params.id)
@@ -48,14 +45,14 @@ class MovieDetails extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: any): {movie: Movie} => {
   return {
     movie: state.movieDetails
   }
 }
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  fetchMovie (id: string) {
+  fetchMovie (id: string): void {
     dispatch(getMovieDetails(id))
   }
 })

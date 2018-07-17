@@ -3,15 +3,15 @@ import * as actionType from './actions.js'
 
 import {url, key} from '../../private.js'
 
-export function setSearchTerm (searchTerm: string) {
+export function setSearchTerm (searchTerm: string): Action<string> {
     return {type: actionType.SET_SEARCH_TERM, payload: searchTerm}
 }
 
-export function setNextPage (pageNum: number) {
+export function setNextPage (pageNum: number): Action<number> {
     return {type: actionType.SET_NEXT_PAGE, payload: pageNum}
 }
 
-export function getNextPage (pageNum: number) {
+export function getNextPage (pageNum: number): Action<Promise<Array<Movie>>> {
     return (
         {
             type: actionType.GET_NEXT_PAGE, 
@@ -22,7 +22,7 @@ export function getNextPage (pageNum: number) {
     )
 }
 
-export function getSearchResults (searchTerm: string) {
+export function getSearchResults (searchTerm: string): Action<Promise<Array<Movie>>> {
     return (
         {
             type: actionType.GET_SEARCH_RESULTS,
@@ -33,7 +33,7 @@ export function getSearchResults (searchTerm: string) {
     )
 }
 
-export function getMovieDetails (movieId: string) {
+export function getMovieDetails (movieId: string): Action<Promise<Movie>> {
     return (
         {
             type: actionType.GET_MOVIE_DETAILS,

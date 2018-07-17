@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 import Search from '../../shared/Search/search.jsx'
 
-const Header = (props: any) => {
+const Header = (props: Props) => {
     return (
       <section className='hero' >
         <div className='hero-body'>
@@ -27,3 +27,11 @@ const Header = (props: any) => {
   }
 
 export default Header
+
+type Props = {
+  history: any,
+  location: any,
+  searchTerm: string,
+  handleSearchTermChange: Function,
+  handleSearchQuery: Function
+}

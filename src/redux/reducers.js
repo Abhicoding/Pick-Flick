@@ -1,24 +1,25 @@
-import * as perform from "./actions.js";
-
+// @flow
 import {combineReducers} from 'redux'
 
-const setSearchTerm = (state, action) => {
+import * as perform from "./actions.js";
+
+const setSearchTerm = (state: string, action: {payload: string}): string => {
     return action.payload
 }
 
-const setNextPage = (state, action) => {
+const setNextPage = (state: number, action: {payload: number}): number => {
     return action.payload
 }
 
-const getNextPage = (state, action) => {
+const getNextPage = (state: Array<Movie>, action: {payload: Array<Movie>}): Array<Movie> => {
     return [...state, ...action.payload]
 }
 
-const getSearchResults = (state, action) => {
+const getSearchResults = (state: Array<Movie>, action: {payload: Array<Movie>}):Array<Movie> => {
     return [...action.payload]
 }
 
-const getMovieDetails = (state, action) => {
+const getMovieDetails = (state, action: {payload: Movie}): Movie => {
     return {...action.payload}
 }
 

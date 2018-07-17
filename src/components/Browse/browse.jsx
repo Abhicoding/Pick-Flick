@@ -31,7 +31,7 @@ class Browse extends React.Component <Props>{
             return i%4===0 ? this.props.results.slice(i, i+4) : null
            })
           .filter (e => e)
-          .map((e, i) => <CardLayout key= {i} movieArray= {e} />)
+          .map((e: any, i) => <CardLayout key= {i} movieArray={e} />)
         }
       <div>
         <a className="button is-warning is-fullwidth" onClick={this.handlePageChange}>More</a>

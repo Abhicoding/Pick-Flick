@@ -1,56 +1,23 @@
+// @flow
 import React from 'react'
+import {connect} from 'react-redux'
 import styled from 'styled-components'
 
-import {key} from '../../../private.js'
+import { getMovieDetails } from '../../redux/actionCreators.js';
 
-const movieObj = {
-  "vote_count": 0, 
-  "id": 0, 
-  "video": false, 
-  "vote_average": 0, 
-  "title": '', 
-  "popularity": 0, 
-  "poster_path": '', 
-  "original_language": '', 
-  "original_title": '', 
-  "genre_ids": [], 
-  "backdrop_path": '', 
-  "adult": false, 
-  "overview": '', 
-  "release_date": ''
-}
-
-
-export default class MovieDetails extends React.Component {
+class MovieDetails extends React.Component<any> {
   constructor (props) {
-    super(props)
-    this.state = {
-      movie : movieObj
-    }
-    const self= this
-    self.getImage = self.getImage.bind(self)
-  }
-
-  getImage () {
-    fetch(`https://api.themoviedb.org/3/collection/${this.props.match.params.id}?api_key=${key.api_key}&language=en-US`)
-      .then(data => data.json())
-      .then(data => {
-        console.log(data, 'getting anything via search')
-        this.setState({
-          movie: data
-        })
-      })
+    super()
+    
+    const self: any= this
+    self.fetchMovie = self.fetchMovie.bind(self)
   }
   componentWillReceiveProps () {
-    this.getImage()
+    this.fetchMovie(this.props.match.params.id)
   }
 
   componentWillMount () {
-    this.getImage()
-  }
-
-  componentWillUnmount () {
-    this.setState({movie: movieObj})
+    this.fetchMovie(this.props.match.params.id)
   }
 
   render () {
@@ -63,7 +30,7 @@ export default class MovieDetails extends React.Component {
     color: rgba(0,0,0,0.6);
     `
 
-    const {movie} = this.state
+    const {movie} = this.props
     return (
       <div>
         <Backdrop>
@@ -84,6 +51,21 @@ export default class MovieDetails extends React.Component {
   }
 }
 
+const mapStateToProps = (state: any) => {
+  return {
+    movieDetails: state.movieDetails
+  }
+}
+
+const mapDispatchToProps = (dispatch: Function) => ({
+  fetchMovie (id) {
+    dispatch(getMovieDetails(id))
+  }
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails)
+
 const Content1 = styled.div`
     z-index: 1;
     font-weight: 700
@@ -99,24 +81,3 @@ const Content3 = styled.div`
     font-weight: 500
     font-size: 1.2em
     color: white`
-
-// type Movie = {
-//   "vote_count": number, 
-//   "id": number, 
-//   "video": boolean, 
-//   "vote_average": number, 
-//   "title": string, 
-//   "popularity": number, 
-//   "poster_path": string, 
-//   "original_language": string, 
-//   "original_title": string, 
-//   "genre_ids": Array<number>, 
-//   "backdrop_path": string, 
-//   "adult": boolean, 
-//   "overview": string, 
-//   "release_date": string
-// }
-
-// type State = {
-//   movie: Movie
-// }

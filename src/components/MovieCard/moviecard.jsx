@@ -1,16 +1,17 @@
+//@ flow
 import React from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
-const MovieCard = (movie) => {
-  // let trimmed
-  // if (movie.title) {
-  //   if (movie.title.length > 18) {
-  //     trimmed = movie.overview.substring(0, 70) + ' ...'
-  //   } else {
-  //     trimmed = movie.overview.substring(0, 100) + ' ...'
-  //   }
-  // }
+const MovieCard = (movie: Movie) => {
+  let trimmed
+  if (movie.title) {
+    if (movie.title.length > 18) {
+      trimmed = movie.overview.substring(0, 70) + ' ...'
+    } else {
+      trimmed = movie.overview.substring(0, 100) + ' ...'
+    }
+  }
   return (
     <div className='tile is-parent is-3'>
       <Link to={`/${movie.id}`}>
@@ -40,21 +41,3 @@ export default MovieCard
 const Parawrap = styled.div`
 // overflow: hidden;
 // whitespace: no wrap;`
-
-type Movie = {
-  "vote_count": number, 
-  "id": number, 
-  "video": boolean, 
-  "vote_average": number, 
-  "title": string, 
-  "popularity": number, 
-  "poster_path": string, 
-  "original_language": string, 
-  "original_title": string, 
-  "genre_ids": Array<number>, 
-  "backdrop_path": string, 
-  "adult": boolean, 
-  "overview": string, 
-  "release_date": string
-
-}

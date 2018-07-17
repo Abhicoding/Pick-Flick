@@ -1,4 +1,4 @@
-import { SET_SEARCH_TERM, SET_NEXT_PAGE, GET_NEXT_PAGE } from "./actions.js";
+import * as perform from "./actions.js";
 
 import {combineReducers} from 'redux'
 
@@ -11,16 +11,20 @@ const setNextPage = (state, action) => {
 }
 
 const getNextPage = (state, action) => {
-    return state.concat(action.payload)
+    return [...state, ...action.payload]
 }
 
 const getSearchResults = (state, action) => {
-    return action.payload
+    return [...action.payload]
+}
+
+const getMovieDetails = (state, action) => {
+    return {...action.payload}
 }
 
 const searchReducer = (state = '', action) => {
     switch (action.type) {
-        case SET_SEARCH_TERM:
+        case perform.SET_SEARCH_TERM:
         return setSearchTerm(state, action)
         default:
         return state
@@ -29,7 +33,7 @@ const searchReducer = (state = '', action) => {
 
 const pageReducer = (state = 1, action) => {
     switch(action.type) {
-        case SET_NEXT_PAGE:
+        case perform.SET_NEXT_PAGE:
         return setNextPage(state, action)
         default:
         return state
@@ -38,19 +42,27 @@ const pageReducer = (state = 1, action) => {
 
 const resultsReducer = (state=[], action) => {
     switch (action.type) {
-        case 'GET_NEXT_PAGE_FULFILLED':
+        case `${perform.GET_NEXT_PAGE}_FULFILLED`:
         return getNextPage(state, action)
-        case 'GET_SEARCH_RESULTS_FULFILLED':
+        case `${perform.GET_SEARCH_RESULTS}_FULFILLED`:
         return getSearchResults(state, action)
         default:
         return state
     }
 }
 
+const movieDetailsReducer = (state={}, action) => {
+    switch(action.type) {
+        case `${perform.GET_MOVIE_DETAILS}_FULFILLED`:
+        return (getMovieDetails(state, action))
+    }
+}
+
 const rootReducer = combineReducers({
     searchTerm: searchReducer, 
     page: pageReducer,
-    results: resultsReducer
+    results: resultsReducer,
+    movieDetails: movieDetailsReducer
 })
 
 export default rootReducer

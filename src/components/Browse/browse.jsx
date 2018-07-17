@@ -7,7 +7,7 @@ import CardLayout from '../CardLayout/cardlayout.jsx'
 
 import {setNextPage, getNextPage} from '../../redux/actionCreators.js'
 
-class Browse extends React.Component <any, any>{
+class Browse extends React.Component <Props>{
   constructor(props) {
     super (props)
     const self : any = this
@@ -52,23 +52,9 @@ const mapDispatchToProps = (dispatch: Function) => ({
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Browse))
 
-type Data = { 
-  "results": Array<Movie>
-}
-
-type Movie = {
-  "vote_count": number, 
-  "id": number, 
-  "video": boolean, 
-  "vote_average": number, 
-  "title": string, 
-  "popularity": number, 
-  "poster_path": string, 
-  "original_language": string, 
-  "original_title": string, 
-  "genre_ids": Array<number>, 
-  "backdrop_path": string, 
-  "adult": boolean, 
-  "overview": string, 
-  "release_date": string
-}
+type Props = {
+  "searchTerm": string,
+  "results": Array<Movie>,
+  "page": number,
+  "handleNextPage": Function 
+  }

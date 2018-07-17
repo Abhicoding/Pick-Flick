@@ -3,34 +3,32 @@ import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 const MovieCard = (movie) => {
-  let trimmed
-  if (movie.title) {
-    if (movie.title.length > 18) {
-      trimmed = movie.overview.substring(0, 70) + ' ...'
-    } else {
-      trimmed = movie.overview.substring(0, 100) + ' ...'
-    }
-  }
+  // let trimmed
+  // if (movie.title) {
+  //   if (movie.title.length > 18) {
+  //     trimmed = movie.overview.substring(0, 70) + ' ...'
+  //   } else {
+  //     trimmed = movie.overview.substring(0, 100) + ' ...'
+  //   }
+  // }
   return (
     <div className='tile is-parent is-3'>
       <Link to={`/${movie.id}`}>
           <article className='tile is-child box' >
-            <img src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} />
-            <p className='title'>{movie.title||movie.name}</p>
+            <figure className='is-4by3'>
+              <img src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} />
+            </figure>
+            <h3 className='title'>{movie.title||movie.name}</h3>
             {
               movie.vote_average 
-              ? <p className='subtitle'>{movie.vote_average}</p> 
+              ? <h3 className='subtitle'>{movie.vote_average}</h3> 
               : null
             }
-            {
-              trimmed
-              ?  <div className='content'>
-                  <Parawrap>
-                    <p>{trimmed}</p>
-                  </Parawrap>
-                </div>
-              : null
-            }
+            <article>
+            <Parawrap>
+              <p>{movie.overview}</p>
+            </Parawrap>
+            </article>
           </article>
           </Link>
       </div>
@@ -40,7 +38,8 @@ const MovieCard = (movie) => {
 export default MovieCard
 
 const Parawrap = styled.div`
-overflow: hidden;`
+// overflow: hidden;
+// whitespace: no wrap;`
 
 type Movie = {
   "vote_count": number, 

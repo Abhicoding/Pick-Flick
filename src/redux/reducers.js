@@ -51,10 +51,18 @@ const resultsReducer = (state=[], action) => {
     }
 }
 
-const movieDetailsReducer = (state={}, action) => {
+const movieDetailsReducer = (
+    state={
+        backdrop_path: '', 
+        title: '', 
+        vote_average: 0, 
+        overview: ''
+    }, action) => {
     switch(action.type) {
         case `${perform.GET_MOVIE_DETAILS}_FULFILLED`:
-        return (getMovieDetails(state, action))
+        return getMovieDetails(state, action)
+        default:
+        return state
     }
 }
 

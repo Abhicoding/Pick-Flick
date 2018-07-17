@@ -1,23 +1,18 @@
 // @flow
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
 
 import { getMovieDetails } from '../../redux/actionCreators.js';
 
-class MovieDetails extends React.Component<any> {
+class MovieDetails extends React.Component<Props> {
   constructor (props) {
     super()
-    
-    const self: any= this
-    self.fetchMovie = self.fetchMovie.bind(self)
-  }
-  componentWillReceiveProps () {
-    this.fetchMovie(this.props.match.params.id)
   }
 
   componentWillMount () {
-    this.fetchMovie(this.props.match.params.id)
+    this.props.fetchMovie(this.props.match.params.id)
   }
 
   render () {
@@ -33,10 +28,12 @@ class MovieDetails extends React.Component<any> {
     const {movie} = this.props
     return (
       <div>
+        { movie.backdrop_path ?
         <Backdrop>
           <img src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`} width='100%'
             height='100%' color='rgba(0,0,0,0.6)' />
         </Backdrop>
+        : null }
         <Content1>
           {movie.title}
         </Content1>
@@ -53,18 +50,24 @@ class MovieDetails extends React.Component<any> {
 
 const mapStateToProps = (state: any) => {
   return {
-    movieDetails: state.movieDetails
+    movie: state.movieDetails
   }
 }
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  fetchMovie (id) {
+  fetchMovie (id: string) {
     dispatch(getMovieDetails(id))
   }
 })
 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MovieDetails))
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails)
+type Props = {
+  fetchMovie: Function,
+  match: any,
+  movie: Movie
+}
+
 
 const Content1 = styled.div`
     z-index: 1;

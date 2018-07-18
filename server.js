@@ -1,5 +1,5 @@
 require('babel-register')({
-    presets: ['react', 'es2015']
+    "plugins":["transform-es2015-modules-commonjs"] 
 })
 
 const express = require('express')

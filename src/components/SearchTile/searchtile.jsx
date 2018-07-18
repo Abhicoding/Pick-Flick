@@ -1,9 +1,11 @@
 // @flow
 import * as React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 import styled from 'styled-components'
 
 import Search from '../../shared/Search/search.jsx'
+import {setNextPage, setSearchTerm} from '../../redux/actionCreators.js'
 
 type Props = {
   searchTerm: string,
@@ -27,7 +29,7 @@ class SearchTile extends React.Component<Props> {
   }
 
   handleBrowseClick () {
-    this.props.history.push('/browse')
+    this.props.handleBrowse()
   }
 
   render () {
@@ -38,7 +40,7 @@ class SearchTile extends React.Component<Props> {
               <Search {...this.props} />
             </div>
             <div className='control'>
-              <Link className= 'button is-danger' to='browse'>
+              <Link className= 'button is-danger' to='browse' onClick={this.handleBrowseClick}>
                 Browse all
               </Link>
             </div>
@@ -48,10 +50,22 @@ class SearchTile extends React.Component<Props> {
   }
 }
 
-export default SearchTile
+const mapStateToProps = (state: any) => ({
+  searchTerm: state.searchTerm,
+  page: state.page
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  handleBrowse () {
+    setSearchTerm('')
+    setNextPage(1)
+  }
+})
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(SearchTile))
 
 const Wrapper = styled.div`
 width: max-content;
 box-sizing: border-box;
-margin: auto;
+margin: 10% auto auto auto;
 `

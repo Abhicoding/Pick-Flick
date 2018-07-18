@@ -34,8 +34,7 @@ class MovieDetails extends React.Component<Props> {
           <Content1>
             {movie.title}
           </Content1>
-          <Content2>
-            
+          <Content2>  
             Rating {movie.vote_average}
           </Content2>
           <Content3>

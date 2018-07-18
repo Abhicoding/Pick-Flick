@@ -3,7 +3,7 @@ import * as React from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import SearchLogo from '../../../public/search.svg'
+// import SearchLogo from '../../../public/search.svg'
 import {setSearchTerm, getSearchResults} from '../../redux/actionCreators.js'
 
 class Search extends React.Component <Props, State> {
@@ -35,7 +35,7 @@ class Search extends React.Component <Props, State> {
         </div>
         <div className='control'>
           <a className='button is-info' onClick={this.search} >
-            <SearchLogo height={25} width={25} fill={'white'} />
+            Search
           </a>
         </div>
       </div>

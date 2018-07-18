@@ -25,19 +25,20 @@ class Browse extends React.Component <Props>{
   }
 
   render () {
-  return (
-    <div>
-          {this.props.results.map((e, i) => {
-            return i%4===0 ? this.props.results.slice(i, i+4) : null
-           })
-          .filter (e => e)
-          .map((e: any, i) => <CardLayout key= {i} movieArray={e} />)
-        }
-      <div>
-        <a className="button is-warning is-fullwidth" onClick={this.handlePageChange}>More</a>
+    return (
+      <div style={{'padding': '1%'}}>
+            {this.props.results.map((e, i) => {
+              return i%4===0 ? this.props.results.slice(i, i+4) : null
+            })
+            .filter (e => e)
+            .map((e: any, i) => <CardLayout key= {i} movieArray={e} />)
+          }
+        <div>
+          <a className={this.props.results.length === 0 ? 'button is-loading is-warning is-fullwidth':"button is-warning is-fullwidth"} onClick={this.handlePageChange}>More</a>
+        </div>
       </div>
-    </div>
-  )}
+    )
+  }
 }
 
 const mapStateToProps = (state: any) => ({results : state.results,

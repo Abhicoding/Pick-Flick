@@ -29,7 +29,7 @@ const MovieCard = (movie: Movie) => {
             }
             <article>
             <Parawrap>
-              <p>{movie.overview}</p>
+              <p>{trimmed}</p>
             </Parawrap>
             </article>
           </article>
@@ -41,5 +41,5 @@ const MovieCard = (movie: Movie) => {
 export default MovieCard
 
 const Parawrap = styled.div`
-// overflow: hidden;
-// whitespace: no wrap;`
+overflow: hidden;
+whitespace: no wrap;`

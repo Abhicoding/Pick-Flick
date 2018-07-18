@@ -1,4 +1,6 @@
 // @flow
+import fetch from 'isomorphic-fetch'
+
 import * as actionType from './actions.js'
 
 import {url, key} from '../../private.js'

@@ -21,10 +21,10 @@ const MovieCard = (movie: Movie) => {
               <img src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} />
             </figure>
             :null}
-            <h3 className='title'>{movie.title||movie.name}</h3>
+            <h4 className='title'>{movie.title||movie.name}</h4>
             {
               movie.vote_average 
-              ? <h3 className='subtitle'>{movie.vote_average}</h3> 
+              ? <h4 className='subtitle'>{movie.vote_average}</h4> 
               : null
             }
             <article>

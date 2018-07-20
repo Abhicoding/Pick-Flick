@@ -14,10 +14,11 @@ const Header = (props: Props) => {
         Pick-Flix
               </Link>
             </h1>
-            {isNaN(parseInt(props.location.pathname))? null :
-            <h2 className='subtitle'>
+            {isNaN(parseInt(props.location.pathname.replace('/', '')))
+            ? (<h2 className='subtitle'>
           Movie Database
-            </h2>}
+            </h2>)
+            : null}
           </div>
           {props.location.pathname === '/browse'
             ? <div className='container'><Search {...props} /></div>

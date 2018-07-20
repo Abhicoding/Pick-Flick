@@ -18,7 +18,7 @@ class MovieDetails extends React.Component<Props> {
     left: 0px; 
     top: 0px; 
     z-index: -1;
-    filter: brightness(40%) blur(1px)
+    filter: brightness(45%) blur(1px)
     `
 
     const {movie} = this.props

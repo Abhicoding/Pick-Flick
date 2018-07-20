@@ -34,7 +34,7 @@ class Browse extends React.Component <Props>{
             .map((e: any, i) => <CardLayout key= {i} movieArray={e} />)
           }
         <div>
-          <a className={this.props.results.length === 0 ? 'button is-loading is-warning is-fullwidth':"button is-warning is-fullwidth"} onClick={this.handlePageChange}>More</a>
+          <a className={this.props.results.length < this.props.page * 20 ? 'button is-loading is-warning is-fullwidth':"button is-warning is-fullwidth"} onClick={this.handlePageChange}>More</a>
         </div>
       </div>
     )

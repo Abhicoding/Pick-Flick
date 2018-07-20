@@ -6,6 +6,13 @@ const Config = {
     path: path.resolve(__dirname, '../public'),
     filename: 'bundle.js'
   },
+  // resolve: {
+  //   extensions: ['.js', '.jsx'],
+  //   alias: {
+  //     'react': 'preact-compat',
+  //     'react-dom': 'preact-compat'
+  //   },
+  // },
   module: {
     rules: [
       {

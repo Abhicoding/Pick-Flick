@@ -1,12 +1,7 @@
 const Config = require('./webpack.common.js')
 
 const Prod = {
-    resolve: {
-        alias: {
-          react: 'preact-compat',
-          'react-dom': 'preact-compat'
-        },
-    }
+    mode: 'production'
 }
 
 module.exports = Object.assign({}, Config, Prod)

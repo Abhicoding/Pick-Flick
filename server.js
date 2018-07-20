@@ -9,6 +9,7 @@ const path = require('path')
 const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 const ReactRouter = require('react-router-dom')
+// const compression = require('compression')
 
 const app = express()
 const App = require('./src/components/app.jsx').default
@@ -16,6 +17,8 @@ const StaticRouter = ReactRouter.StaticRouter
 const PORT = 9000
 
 app.use(express.static(path.resolve(__dirname, './public')))
+
+// app.use(compression())
 
 app.use((req, res)=> {
     let context = {}

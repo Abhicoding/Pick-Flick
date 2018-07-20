@@ -4,24 +4,24 @@ import {Route, Switch} from 'react-router-dom'
 import {Provider} from 'react-redux'
 
 import Header from './Header/header.jsx'
-import SearchTile from './SearchTile/searchtile.jsx'
-import Browse from './Browse/browse.jsx'
-import MovieDetails from './MovieDetails/moviedetails.jsx'
-import AsyncComponent from './asyncroute.jsx'
+// import SearchTile from './SearchTile/searchtile.jsx'
+// import Browse from './Browse/browse.jsx'
+// import MovieDetails from './MovieDetails/moviedetails.jsx'
+import AsyncRoute from './asyncroute.jsx'
 
 import store from '../redux/store.js'
 
-const AsyncSearchTile    = AsyncComponent(() => {
-  return import('./SearchTile/searchtile.jsx')
-})
+// const AsyncSearchTile    = AsyncComponent(() => {
+//   return import('./SearchTile/searchtile.jsx')
+// })
 
-const AsyncBrowse = AsyncComponent(() => {
-  return import('./Browse/browse.jsx')
-})
+// const AsyncBrowse = AsyncComponent(() => {
+//   return import('./Browse/browse.jsx')
+// })
 
-const AsyncMovieDetails = AsyncComponent(() => {
-  return import('./MovieDetails/moviedetails.jsx')
-})
+// const AsyncMovieDetails = AsyncComponent(() => {
+//   return import('./MovieDetails/moviedetails.jsx')
+// })
 
 
 const App  = (props: any) => {
@@ -30,12 +30,12 @@ const App  = (props: any) => {
         <div>
           <Route path='/' render={props => <Header {...props} />} />
 
-          <Route exact path='/' render={props => <AsyncSearchTile {...props}/>} />
+          <Route exact path='/' component={props => <AsyncRoute props ={props} loadingPromise={import('./SearchTile/searchtile.jsx')} />} />
           
           <Switch>
-            <Route exact path='/browse' render={props => <AsyncBrowse {...props}/>} />
+            <Route exact path='/browse' render={props => <AsyncRoute props ={props} loadingPromise={import('./Browse/browse.jsx')} />} />
 
-            <Route exact path='/:id' render={props => <AsyncMovieDetails {...props} />} />
+            <Route exact path='/:id' component={props => <AsyncRoute props ={props} loadingPromise={import('./MovieDetails/moviedetails.jsx')} />} />} />
           </Switch>
         </div>
       </Provider>

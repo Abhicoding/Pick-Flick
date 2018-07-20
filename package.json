@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build:dev": "webpack --config ./webpack/webpack.dev.js",
-    "build:prod": "webpack --optimize-minimize ./webpack/webpack.prod.js -p",
+    "build:prod": "webpack --config ./webpack/webpack.prod.js -p",
     "dev-server": "webpack-dev-server --config ./webpack/webpack.dev.js",
-    "dev:server": "nodemon ./server.js",
+    "dev:server": "NODE_ENV=DEV nodemon ./server.js",
+    "prod:server": "NODE_ENV=PROD nodemon ./server.js",
     "test": "NODE_ENV=test jest",
     "flow": "flow"
   },
@@ -30,6 +31,8 @@
     "es6-promise": "^4.2.4",
     "express": "^4.16.3",
     "isomorphic-fetch": "^2.2.1",
+    "preact": "^8.2.9",
+    "preact-compat": "^3.18.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",

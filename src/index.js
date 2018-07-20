@@ -1,12 +1,12 @@
 import React from 'react'
-import {hydrate} from 'react-dom'
+import {render} from 'react-dom'
 import {BrowserRouter} from 'react-router-dom'
 
 import 'bulma/css/bulma.css'
 
 import App from './components/app.jsx'
 
-hydrate(
+render(
     <BrowserRouter>
       <App />
     </BrowserRouter>

@@ -1,4 +1,4 @@
-const Config = require('./webpack.config')
+const Config = require('./webpack.common.js')
 const path = require('path')
 
 const Dev = {

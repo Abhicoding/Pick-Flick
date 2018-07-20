@@ -17,8 +17,6 @@ const PORT = 9000
 
 app.use(express.static(path.resolve(__dirname, './public')))
 
-console.log(path.resolve(__dirname, './public'))
-
 app.use((req, res)=> {
     let context = {}
     let htmlPath = path.resolve(__dirname, './public/index.html')
@@ -29,7 +27,5 @@ app.use((req, res)=> {
     res.send(baseTemplate.toString().replace(`<div id='app'></div>`, 
 `<div id='app'>${body}</div>`))
 })
-
-
 
 app.listen(PORT, () => console.log('Now playing'))

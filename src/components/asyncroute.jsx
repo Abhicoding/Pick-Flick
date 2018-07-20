@@ -1,24 +1,33 @@
 // @flow
 import React from 'react'
 
-const AsyncComponent = (importComponent: Function) => {
-    return class extends React.Component<any, any> {
-        state = {
-            component: null
-        }
-
-        componentDidMount() {
-            importComponent()
-                .then(cmp => {
-                    this.setState({component: cmp.default});
-                });
-        }
-
-        render() {
-            const C = this.state.component;
-            return C ? <C {...this.props}/> : <h1></h1>;
-        }
+class AsyncRoute extends React.Component <Props, State>{
+    state = {
+      loaded: false
+    };
+    componentDidMount() {
+      this.props.loadingPromise.then(module => {
+        this.component = module.default;
+        this.setState({ loaded: true });
+      });
     }
-};
+    component = null;
+    
+    render() {
+      if (this.state.loaded) {
+        return <this.component {...this.props.props} />;
+      }
+      return <h1>Loading.. Please wait</h1>;
+    }
+  }
+  
+export default AsyncRoute
 
-export default AsyncComponent
+type State = {
+    loaded: boolean
+}
+
+type Props = {
+    loadingPromise : Promise<{ default: Class<React.Component<*,*,*>> }>,
+    props: mixed
+}
